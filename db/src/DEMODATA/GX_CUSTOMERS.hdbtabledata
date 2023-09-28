@@ -1,0 +1,56 @@
+{
+   "format_version" : 1,   
+   "imports" :[
+      {
+         "target_table": GX_CUSTOMERS,
+         "source_data": {
+            "data_type": "CSV",
+            "file_name": "GX_CUSTOMERS.csv", 
+            "has_header": true,
+            "type_config": {
+               "delimiter": ","
+            }
+         },
+         "import_settings" : { 
+            "import_columns" : [
+               CUSTOMER_ID,
+               CUSTOMER_LASTNAME,
+               CUSTOMER_FIRSTNAME,
+               CUSTOMER_SEX,
+               CUSTOMER_BIRTHDAY,
+               CUSTOMER_COUNTRY,
+               CUSTOMER_REGION,
+               CUSTOMER_REGIONNAME,
+               CUSTOMER_POSTCODE,
+               CUSTOMER_CITY,
+               CUSTOMER_STREET,
+               CUSTOMER_HOUSENUMBER,
+               CUSTOMER_LATITUDE,
+               CUSTOMER_LONGITUDE,
+               CUSTOMER_EMAIL,
+               CUSTOMER_PHONE
+            ],
+            "include_filter" : []
+         },
+         "column_mappings": {
+            CUSTOMER_ID : 1,
+            CUSTOMER_LASTNAME : 2,
+            CUSTOMER_FIRSTNAME : 3,
+            CUSTOMER_SEX : 4,
+            CUSTOMER_BIRTHDAY : 5,
+            CUSTOMER_COUNTRY : 6,
+            CUSTOMER_REGION : 7,
+            CUSTOMER_REGIONNAME : 8,
+            CUSTOMER_POSTCODE : 9,
+            CUSTOMER_CITY : 10,
+            CUSTOMER_STREET : 11,
+            CUSTOMER_HOUSENUMBER : 12,
+            CUSTOMER_LATITUDE : 13,
+            CUSTOMER_LONGITUDE : 14,
+            CUSTOMER_EMAIL : 15,
+            CUSTOMER_PHONE : 16
+         
+         }
+      }
+   ]
+}

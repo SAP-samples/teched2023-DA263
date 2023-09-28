@@ -1,0 +1,16 @@
+"node_id";"name";"priority";"fragile";"IN_SCOPE"
+Berlin;Berlin;TRUE;TRUE;1
+Stuttgart;Stuttgart;TRUE;TRUE;1
+Mannheim;Mannheim;TRUE;TRUE;1
+Nuremburg;Nuremburg;TRUE;TRUE;1
+Heilbronn;Heilbronn;FALSE;TRUE;1
+Strassbourg;Strassbourg;TRUE;FALSE;1
+Augsburg;Augsburg;FALSE;FALSE;1
+Ludwigsburg;Ludwigsburg;FALSE;FALSE;1
+Buchen;Buchen;FALSE;FALSE;1
+Miltenberg;Miltenberg;FALSE;FALSE;1
+Fahrenbach;Fahrenbach;FALSE;TRUE;1
+Eberbach;Eberbach;TRUE;TRUE;1
+Helmstadt;Helmstadt;TRUE;TRUE;1
+Dammbach;Dammbach;TRUE;FALSE;1
+Oberzent;Oberzent;TRUE;FALSE;1

@@ -1,0 +1,32 @@
+{
+   "format_version" : 1,   
+   "imports" :[
+      {
+         "target_table": GX_PRODUCTS,
+         "source_data": {
+            "data_type": "CSV",
+            "file_name": "GX_PRODUCTS.csv", 
+            "has_header": true,
+            "type_config": {
+               "delimiter": ","
+            }
+         },
+         "import_settings" : { 
+            "import_columns" : [
+               PRODUCT_ID,
+               PRODUCT_TYPE,
+               PRODUCT_NAME,
+               PRODUCT_PRICE
+            ],
+            "include_filter" : []
+         },
+         "column_mappings": {
+            PRODUCT_ID : 1,
+            PRODUCT_TYPE : 2,
+            PRODUCT_NAME : 3,
+            PRODUCT_PRICE : 4
+         
+         }
+      }
+   ]
+}

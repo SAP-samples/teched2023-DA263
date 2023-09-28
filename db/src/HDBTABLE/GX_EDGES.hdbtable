@@ -1,0 +1,13 @@
+
+
+column table GX_EDGES (
+   edge_id  NVARCHAR(50)  NOT NULL,
+   length  INTEGER,
+   start  NVARCHAR(50)  NOT NULL,
+   end  NVARCHAR(50)  NOT NULL,
+   method  NVARCHAR(10),
+   mode  NVARCHAR(8),
+   status  NVARCHAR(20)
+, primary key  ( 
+     edge_id)
+)
