@@ -2,37 +2,37 @@
    "format_version" : 1,   
    "imports" :[
       {
-         "target_table": GX_WORLD_COUNTRIES,
+         "target_table": "GX_WORLD_COUNTRIES",
          "source_data": {
             "data_type": "CSV",
             "file_name": "GX_WORLD_COUNTRIES.csv", 
             "has_header": true,
             "type_config": {
-               "delimiter": ","
+               "delimiter": ";"
             }
          },
          "import_settings" : { 
             "import_columns" : [
-               FID,
-               COUNTRY,
-               ISO,
-               COUNTRYAFF,
-               AFF_ISO,
-               SHAPE_Leng,
-               SHAPE_Area,
-               SHAPE
+               "FID",
+               "COUNTRY",
+               "ISO",
+               "COUNTRYAFF",
+               "AFF_ISO",
+               "SHAPE_Leng",
+               "SHAPE_Area",
+               "SHAPE"
             ],
             "include_filter" : []
          },
          "column_mappings": {
-            FID : 1,
-            COUNTRY : 2,
-            ISO : 3,
-            COUNTRYAFF : 4,
-            AFF_ISO : 5,
-            SHAPE_Leng : 6,
-            SHAPE_Area : 7,
-            SHAPE : 8
+            "FID" : 1,
+            "COUNTRY" : 2,
+            "ISO" : 3,
+            "COUNTRYAFF" : 4,
+            "AFF_ISO" : 5,
+            "SHAPE_Leng" : 6,
+            "SHAPE_Area" : 7,
+            "SHAPE" : 8
          
          }
       }
