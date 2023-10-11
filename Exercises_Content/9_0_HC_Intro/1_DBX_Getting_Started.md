@@ -45,9 +45,8 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 
 1. Open the **SAP Business Application Studio**
 
-**[BAS](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)**
+**[BAS](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html){:target="_blank">}**
 
-<a href <https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html> target="_blank">BAS</a>
 
 2. Select **Sign into another account**
 
