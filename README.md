@@ -29,7 +29,7 @@ The requirements to follow the exercises in this repository are :
 
 ## Exercises
 
-- [Getting Started](Exercises_Content/9_0_HC_Intro/readme.md)
+- [Getting Started](Exercises_Content/9_0_HC_Intro/README.md)
 - [Exercise 1 - IN-MEMORY_COLUMN-TABLES](Exercises_Content/9_1_HC_HanaTables)
 - [Exercise 2 - DATA-TIERING](Exercises_Content/9_2_HC_DataTiering)
 - [Exercise 3 - MULTI-MODEL--SPATIAL](Exercises_Content/9_3_HC_Spatial)
