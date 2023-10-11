@@ -46,15 +46,14 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 1. Open the **SAP Business Application Studio**
 
 **[BAS](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)**
-<a href https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html target="_blank">BAS</a>
 
-2.  Select **Sign into another account**
+<a href <https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html> target="_blank">BAS</a>
+
+2. Select **Sign into another account**
 
 ![](./Images/DBX_Intro/DBX_Image_DBXSignIn.png)
 
-
 3. Type  ****{placeholder|idpplatform}**** as the IDP and then select **Sign in with alternative identity provider**.
-
 
    <!-- **NOTE:** If you are an **SAP partner**, enter `academy-platform` and click on **Sign in with alternative identity provider** -->
 
@@ -87,9 +86,7 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 
 ![](./Images/DBX_Intro/DBX_Image_DBXSignIn2.png)
 
-
 <!-- ![](./Images/DBX_Intro/Exercise1/image3.png) -->
-
 
 </br>
 
@@ -101,7 +98,6 @@ The **SAP HANA Database Explorer** is ready:
 
 After successfully logging in to the SAP HANA Cloud Database Explorer, the next step is to copy the data for the exercises.
 
-
 </br>
 
 ### Create Tables
@@ -110,15 +106,15 @@ The tables and data for the exercises are available in a different read-only sch
 
 By the end of this section the following tables will be created under the schema **{placeholder|userid}**:
 
-* GX_CUSTOMERS
-* GX_EMPLOYEES
-* GX_PRODUCTS
-* GX_SALES
-* GX_WORLD_COUNTRIES 
-* GX_REVIEWS
-* GX_EDGES
-* GX_NODES
-* GX_TRANSACTIONS
+- GX_CUSTOMERS
+- GX_EMPLOYEES
+- GX_PRODUCTS
+- GX_SALES
+- GX_WORLD_COUNTRIES
+- GX_REVIEWS
+- GX_EDGES
+- GX_NODES
+- GX_TRANSACTIONS
 
 <!---We will first create copies and simultaneously populate tables involved, to our own local schema **{placeholder|userid}** with data from our source schema.--->
 
@@ -127,7 +123,6 @@ By the end of this section the following tables will be created under the schema
 ![](./Images/DBX_Intro/image14.png)
 
 2. Copy and paste the following SQL statements and execute them by clicking on the green **Run** icon or by pressing the **F8** function key.
-
 
 ```sql
 CREATE TABLE GX_WORLD_COUNTRIES AS (SELECT * FROM "HC_DEV"."GX_WORLD_COUNTRIES");
@@ -150,50 +145,50 @@ ALTER TABLE GX_EDGES ADD CONSTRAINT GX_EDGES_prim_key PRIMARY KEY ("edge_id");
 
 -- SDI Replication Target (RT_) tables
 CREATE COLUMN TABLE "RT_CUSTOMERS"(
-	"CUSTOMER_ID" NVARCHAR(50),
-	"CUSTOMER_LASTNAME" NVARCHAR(50),
-	"CUSTOMER_FIRSTNAME" NVARCHAR(50),
-	"CUSTOMER_SEX" NVARCHAR(50),
-	"CUSTOMER_BIRTHDAY" NVARCHAR(50),
-	"CUSTOMER_COUNTRY" NVARCHAR(50),
-	"CUSTOMER_REGION" NVARCHAR(50),
-	"CUSTOMER_REGIONNAME" NVARCHAR(50),
-	"CUSTOMER_POSTCODE" NVARCHAR(50),
-	"CUSTOMER_CITY" NVARCHAR(50),
-	"CUSTOMER_STREET" NVARCHAR(50),
-	"CUSTOMER_HOUSENUMBER" NVARCHAR(50),
-	"CUSTOMER_LATITUDE" NVARCHAR(50),
-	"CUSTOMER_LONGITUDE" NVARCHAR(50),
-	"CUSTOMER_EMAIL" NVARCHAR(50),
-	"CUSTOMER_PHONE" NVARCHAR(50)
+ "CUSTOMER_ID" NVARCHAR(50),
+ "CUSTOMER_LASTNAME" NVARCHAR(50),
+ "CUSTOMER_FIRSTNAME" NVARCHAR(50),
+ "CUSTOMER_SEX" NVARCHAR(50),
+ "CUSTOMER_BIRTHDAY" NVARCHAR(50),
+ "CUSTOMER_COUNTRY" NVARCHAR(50),
+ "CUSTOMER_REGION" NVARCHAR(50),
+ "CUSTOMER_REGIONNAME" NVARCHAR(50),
+ "CUSTOMER_POSTCODE" NVARCHAR(50),
+ "CUSTOMER_CITY" NVARCHAR(50),
+ "CUSTOMER_STREET" NVARCHAR(50),
+ "CUSTOMER_HOUSENUMBER" NVARCHAR(50),
+ "CUSTOMER_LATITUDE" NVARCHAR(50),
+ "CUSTOMER_LONGITUDE" NVARCHAR(50),
+ "CUSTOMER_EMAIL" NVARCHAR(50),
+ "CUSTOMER_PHONE" NVARCHAR(50)
 )
 UNLOAD PRIORITY 5 AUTO MERGE;
 
 CREATE COLUMN TABLE "RT_EMPLOYEES"(
-	"EMPLOYEE_ID" NVARCHAR(50),
-	"EMPLOYEE_FIRSTNAME" NVARCHAR(50),
-	"EMPLOYEE_LASTNAME" NVARCHAR(50),
-	"EMPLOYEE_ACCOUNT_NO" NVARCHAR(50),
-	"EMPLOYEE_SALARY" NVARCHAR(50),
-	"EMPLOYEE_START_YEAR" NVARCHAR(50),
-	"EMPLOYEE_GENDER" NVARCHAR(50),
-	"EMPLOYEE_REGION" NVARCHAR(50),
-	"EMPLOYEE_ZIPCODE" NVARCHAR(50),
-	"EMPLOYEE_T-LEVEL" NVARCHAR(50),
-	"EMPLOYEE_EDUCATION" NVARCHAR(50)
+ "EMPLOYEE_ID" NVARCHAR(50),
+ "EMPLOYEE_FIRSTNAME" NVARCHAR(50),
+ "EMPLOYEE_LASTNAME" NVARCHAR(50),
+ "EMPLOYEE_ACCOUNT_NO" NVARCHAR(50),
+ "EMPLOYEE_SALARY" NVARCHAR(50),
+ "EMPLOYEE_START_YEAR" NVARCHAR(50),
+ "EMPLOYEE_GENDER" NVARCHAR(50),
+ "EMPLOYEE_REGION" NVARCHAR(50),
+ "EMPLOYEE_ZIPCODE" NVARCHAR(50),
+ "EMPLOYEE_T-LEVEL" NVARCHAR(50),
+ "EMPLOYEE_EDUCATION" NVARCHAR(50)
 )
 UNLOAD PRIORITY 5 AUTO MERGE;
 
 CREATE COLUMN TABLE "RT_SALES"(
-	"SALES_ID" NVARCHAR(50),
-	"SALES_DATE" NVARCHAR(50),
-	"SALES_TIME" NVARCHAR(50),
-	"CUSTOMER_ID" NVARCHAR(50),
-	"PRODUCT_ID" NVARCHAR(50),
-	"QUANTITY" NVARCHAR(50),
-	"DISCOUNT_PERCENTAGE" NVARCHAR(50),
-	"DISCOUNT_AMOUNT" NVARCHAR(50),
-	"PRICE" NVARCHAR(50)
+ "SALES_ID" NVARCHAR(50),
+ "SALES_DATE" NVARCHAR(50),
+ "SALES_TIME" NVARCHAR(50),
+ "CUSTOMER_ID" NVARCHAR(50),
+ "PRODUCT_ID" NVARCHAR(50),
+ "QUANTITY" NVARCHAR(50),
+ "DISCOUNT_PERCENTAGE" NVARCHAR(50),
+ "DISCOUNT_AMOUNT" NVARCHAR(50),
+ "PRICE" NVARCHAR(50)
 )
 UNLOAD PRIORITY 5 AUTO MERGE;
 
@@ -201,33 +196,31 @@ UNLOAD PRIORITY 5 AUTO MERGE;
 -- FlowGraph Data Transformation target table
 
 CREATE COLUMN TABLE "FGT_DE_HE_CUSTOMERS"(
-	"CUSTOMER_ID" NVARCHAR(50),
-	"CUSTOMER_LASTNAME" NVARCHAR(50),
-	"CUSTOMER_FIRSTNAME" NVARCHAR(50),
-	"CUSTOMER_SEX" NVARCHAR(50),
-	"CUSTOMER_BIRTHDAY" NVARCHAR(50),
-	"CUSTOMER_COUNTRY" NVARCHAR(50),
-	"CUSTOMER_REGION" NVARCHAR(50),
-	"CUSTOMER_REGIONNAME" NVARCHAR(50),
-	"CUSTOMER_POSTCODE" INTEGER,
-	"CUSTOMER_CITY" NVARCHAR(50),
-	"CUSTOMER_STREET" NVARCHAR(50),
-	"CUSTOMER_HOUSENUMBER" NVARCHAR(50),
-	"CUSTOMER_LATITUDE" REAL,
-	"CUSTOMER_LONGITUDE" REAL,
-	"CUSTOMER_EMAIL" NVARCHAR(50),
-	"CUSTOMER_PHONE" NVARCHAR(50)
+ "CUSTOMER_ID" NVARCHAR(50),
+ "CUSTOMER_LASTNAME" NVARCHAR(50),
+ "CUSTOMER_FIRSTNAME" NVARCHAR(50),
+ "CUSTOMER_SEX" NVARCHAR(50),
+ "CUSTOMER_BIRTHDAY" NVARCHAR(50),
+ "CUSTOMER_COUNTRY" NVARCHAR(50),
+ "CUSTOMER_REGION" NVARCHAR(50),
+ "CUSTOMER_REGIONNAME" NVARCHAR(50),
+ "CUSTOMER_POSTCODE" INTEGER,
+ "CUSTOMER_CITY" NVARCHAR(50),
+ "CUSTOMER_STREET" NVARCHAR(50),
+ "CUSTOMER_HOUSENUMBER" NVARCHAR(50),
+ "CUSTOMER_LATITUDE" REAL,
+ "CUSTOMER_LONGITUDE" REAL,
+ "CUSTOMER_EMAIL" NVARCHAR(50),
+ "CUSTOMER_PHONE" NVARCHAR(50)
 )
 UNLOAD PRIORITY 5 AUTO MERGE;
 
 
 ```
 
-
 ![](./Images/DBX_Intro/image01new.png)
 
 </br>
-
 
 <!-- Now we can confirm the details of our tables by selecting them in the Catalog. -->
 Now, confirm the details of the tables by selecting them in the Catalog. Navigate to the Catalog section and choose the tables to review.
@@ -241,7 +234,6 @@ Now, confirm the details of the tables by selecting them in the Catalog. Navigat
 ![](./Images/DBX_Intro/image02new.png)
 
 </br>
-
 
 <!-- Great! You have now set up your environment with all the necessary tables and populated them with data. You are ready to continue with the exercises!
 First, take a look at the next lesson which introduces you to the *'Why'* of HANA. -->
