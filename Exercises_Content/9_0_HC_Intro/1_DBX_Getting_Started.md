@@ -1,42 +1,51 @@
-The SAP HANA Cloud guided experience is an introductory tutorial experience for all users. The following modules can be completed in sequence or individually:
+# The SAP HANA Cloud guided experience is an introductory tutorial experience for all users. The following modules can be completed in sequence or individually
 
 - In-Memory Column Tables
-- Data Tiering 
+- Data Tiering
 - Multi-Model - Spatial
-- Multi-Model - Document Store 
+- Multi-Model - Document Store
 - Multi-Model - Graph
 - Multi-Model - AutoML Introduction
-
 
 <!---**Important!** For all hands-on topics, please refer to the registration email received for details on accounts, passwords, and the date account expires. -->
 
 </br>
 
-> **Please Note:**
-> * For all hands-on topics, refer to the registration email for details of accounts, passwords, and the account expiration date.
-> * This exercise is for learning, non-productive use only. All data and objects associated with your account are not available after the account expires.
-> * After completing the *Getting Started* module, the other modules can be explored in any sequence.
+ **Please Note:**
 
-<!--- **Note** the hands-on in this lesson is compulsory in order to explore any of the SAP HANA Cloud features in this Guided Experience. All features are independent and can be explored in any sequence.--->
+- For all hands-on topics, refer to the registration email for details of accounts, passwords, and the account expiration date.
+
+- This exercise is for learning, non-productive use only. All data and objects associated with your account are not available after the account expires.
+
+- After completing the *Getting Started* module, the other modules can be explored in any sequence.
+
+<!--- **Note** the hands-on in this lesson is compulsory in order to explore any of the SAP HANA Cloud features in this workshop. All features are independent and can be explored in any sequence.--->
 
 </br>
 
 ## Configure the Environment
 
-<!---Before starting the lessons, the working environment must first be set up and configured. Get started by logging in to SAP HANA Database Explorer, then create database tables that will be used during the rest of the guided experience.--->
+<!---Before starting the lessons, the working environment must first be set up and configured. Get started by logging in to SAP Business Application Studio, then clone the project that will be used during the rest of the guided experience.--->
 
+For the workshop we are using so called HANA Deployment Infrastructure Container also known as HDI-Containers. This will allow all participants to work in the same isolated environment (HDI container) without interfering with other participants.
 Each of the modules within this guided experience use the same set of tables. These tables contain some generic transactional sales data including details of customers, products, employees as well as review and location data.
-This data currently resides in a separate, read-only, schema. Before beginning the first module, use the SAP HANA Cloud Database Explorer to copy data to your user's database schema. Each user has full access to the objects in their own schema.
+The tables and data will be deployed to the database in this step.
+There are 2 tools we toggle between
 
-The hands-on topics are solely done via SAP HANA Cloud Database Explorer - referred to as **DBX**. The SAP HANA database explorer is a web-based tool for browsing and working with SAP HANA database objects such as tables, views, functions, stored procedures. In addition, use DBX to import and export data, execute SQL statements, create remote sources, work with multi-model data such as graph, spatial and JSON collections, debug SQLScript, view trace files, and any other SQL activity.
+- SAP Business Application Studio (*BAS*) which the browser version of Visual Studio Code (VSC)
+
+- Database Explorer (*DBX*) for SAP HANA Cloud
+
+The SAP Business Application Studio is a web-based tool to allow creating content for HDI and building application. It is a general purpose tool used widely in SAP also for CAP, No-LowCode, Fiori, mobile...
+The SAP HANA database explorer is a web-based tool for browsing and working with SAP HANA database objects such as tables, views, functions, stored procedures. In addition, use DBX to import and export data, execute SQL statements, create remote sources, work with multi-model data such as graph, spatial and JSON collections, debug SQLScript, view trace files, and any other SQL activity.
 
 </br>
 
-### Logging into Database Explorer (DBX)
+### Cloning our project
 
-1. Open the **SAP HANA Database Explorer URL**
+1. Open the **SAP Business Application Studio**
 
-	**[Database Explorer]({link|dbx})**
+**[BAS]({https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html|dbx})**
 
 
 2.  Select **Sign into another account**

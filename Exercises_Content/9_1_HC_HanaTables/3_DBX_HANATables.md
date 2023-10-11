@@ -49,43 +49,89 @@ Column tables have several advantages:
 <!-- Let's look at how to create Row and Column tables in HANA.
 If you noticed from the SQL statements we ran in the *Getting Started* lesson, the syntax of creating a table in HANA is as follows: -->
 
-1. Let's explore how to create Row and Column tables in SAP HANA Cloud. The syntax for creating a table in HANA is as follows:
+1. Let's explore how to create Row and Column tables in SAP HANA Cloud using Business Application studio. Tables can be created in HANA using hdbtable and hdbmigrationtable artifacts.The DA263 project already has tables defined in HDBTABLE folder.Double click on the artifact GX_CUSTOMERS.hdbtable to view its definition
+![](./Images/BAS/GX_CUSTOMERS_TABLE.png)
 
-```sql
-CREATE TABLE <NAME_OF_TABLE>
-```
+2. Open Database Explorer to view its runtime artifact.
+![](./Images/BAS/OpenDBExplorer.png)
 
-2. By default, the SQL command creates a Column table. View the properties of a table by clicking on the table name. Filter on *GX_EMPLOYEES* and then click on **Properties** in the tab to the right.
+3. View the properties of a table by clicking on the table name.Click on Tables, Filter on *GX_CUSTOMERS* and then click on **Properties** in the tab to the right.
 
-![](./Images/DBX_Tables/image02.png)
+![](./Images/DBX_Tables/GX_CUSTOMERS_PROPERTIES.png)
 
 <!-- Here you wil see more details about the table such as name, schema, size, etc.  -->
 
 Upon clicking on **Properties** for the selected table, the additional details about the table appears including name, schema, size, and other relevant information.
 
-3. Look for the **Table Type** property, and you will see it is listed as a **COLUMN** table.
+4. Look for the **Table Type** property, and you will see it is listed as a **COLUMN** table.
 
-![](./Images/DBX_Tables/image03.png)
+![](./Images/DBX_Tables/GX_CUSTOMERS_TABLE_TYPE_COLUMN.png)
 
-4. Click on the **Runtime Information** tab to see the runtime details such as memory usage, disk size and record count.
+5. Click on the **Runtime Information** tab to see the runtime details such as memory usage, disk size and record count.
 
-![](./Images/DBX_Tables/image04.png)
+![](./Images/DBX_Tables/GX_CUSTOMERS_RUNTIME_INFO1.png)
 
-To create a Row table, explicitly define the table type in the SQL statement.
+To create a Row table, define the table type as ROW in the hdbtable artifact.
 
-5. Open a new SQL console session and paste in the following SQL which will create a Row type table called **GX_EMPLOYEES_ROW** and populate it with the same data as before:
+6. Navigate to Business Application Studio.Select your project folder in the workspace and click F1 to open Command Palette or click View -> Command Palette
 
-```sql
-CREATE ROW TABLE GX_EMPLOYEES_ROW as (SELECT * FROM "HC_DEV"."GX_EMPLOYEES");
+![](./Images/BAS/CommandPalette.png)
+
+7. Type HANA to view the available commands with SAP HANA module. Click on **SAP HANA: Create SAP HANA Database Artifact**
+
+![](./Images/BAS/NewDatabaseArtifact_CP.png)
+
+8. In the **Create SAP HANA Database Artifact** interface, add */HDBTABLE* to the path as we want to create hdbtable artifacts in HDBTABLE folder.Select *Table(hdbtable)* as the **artifact type** and type *GX_CUSTOMERS_ROW* as **artifact name**
+
+![](./Images/BAS/GX_CUSTOMERS_ROW.png)
+
+9. Click on **Create**
+
+![](./Images/BAS/CreateBtn.png)
+
+10. Replace the following content into the *GX_CUSTOMER_ROW.hdbtable* file.
+
 ```
+ROW TABLE "GX_CUSTOMERS_ROW" ("CUSTOMER_ID"  NVARCHAR(50)  NOT NULL,
+"CUSTOMER_LASTNAME"  NVARCHAR(50),
+"CUSTOMER_FIRSTNAME"  NVARCHAR(50),
+"CUSTOMER_SEX"  NVARCHAR(2),
+"CUSTOMER_BIRTHDAY"  DATE,
+"CUSTOMER_COUNTRY"  NVARCHAR(50),
+"CUSTOMER_REGION"  NVARCHAR(50),
+"CUSTOMER_REGIONNAME"  NVARCHAR(50),
+"CUSTOMER_POSTCODE"  NVARCHAR(10),
+"CUSTOMER_CITY"  NVARCHAR(50),
+"CUSTOMER_STREET"  NVARCHAR(50),
+"CUSTOMER_HOUSENUMBER"  NVARCHAR(50),
+"CUSTOMER_LATITUDE"  DECIMAL(22,8),
+"CUSTOMER_LONGITUDE"  DECIMAL(22,8),
+"CUSTOMER_EMAIL"  NVARCHAR(50),
+"CUSTOMER_PHONE"  NVARCHAR(50)
+, primary key  ( 
+  "CUSTOMER_ID")
+)
+```
+11. Deploy the newly created table from *SAP HANA PROJECTS* view.
 
-6. The newly created table can now be seen in DB Explorer. Click on this table to open the details.
+![](./Images/BAS/DeployRowTable.png)
 
-![](./Images/DBX_Tables/image05.png)
+12. The newly created table can now be seen in DB Explorer. Open *SQL Console* and execute the following SQL to insert data
+
+![](./Images/BAS/OpenSQLConsole.png)
+
+```SQL
+INSERT INTO "GX_CUSTOMERS_ROW" SELECT * FROM "GX_CUSTOMERS"
+```
+![](./Images/BAS/ExecuteSQL.png)
+
+13. Click on the table *GX_CUSTOMERS_ROW* to open the details.
+
+![](./Images/BAS/RowRuntime1.png)
 
 7. Now select the runtime tab and observe the *Memory Consumption* details. The amount of memory required for a row table is higher than with the same data residing in a column table.
 
-![](./Images/DBX_Tables/image06.png)
+![](./Images/BAS/RowRuntime2.png)
 
 Column tables are more efficient and support faster query processing than row tables. For further information on data storage in SAP HANA Cloud, click [here](https://help.sap.com/docs/HANA_SERVICE_CF/6a504812672d48ba865f4f4b268a881e/bd2e9b88bb571014b5b7a628fca2a132.html).
 
@@ -128,9 +174,9 @@ Applications may actively control partitions, for example, by adding partitions 
 ------
 ### Try it out!
 
-Explore how to partition a table using practical examples. For demonstration purposes, use the **GX_EMPLOYEES** table, which contains a conveniently rounded number of 100,000 records. Note that any table can be partitioned.
+Explore how to partition a table using practical examples. For demonstration purposes, use the **GX_CUSTOMERS** table, which contains a conveniently rounded number of 100,000 records. Note that any table can be partitioned.
 
-Currently, the GX_EMPLOYEES table does not contain any partitions, and all 100,000 records are in a single table. Confirm by examining the metadata of the table in the SAP HANA Cloud Database Explorer. Upon inspection, observe that the Partition tab is blank, indicating the absence of any partitions in the table.
+Currently, the GX_CUSTOMERS table does not contain any partitions, and all 100,000 records are in a single table. Confirm by examining the metadata of the table in the SAP HANA Cloud Database Explorer. Upon inspection, observe that the Partition tab is blank, indicating the absence of any partitions in the table.
 
 ![](./Images/DBX_Tables/image07.png)
 

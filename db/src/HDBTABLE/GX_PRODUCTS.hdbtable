@@ -4,7 +4,7 @@ column table "GX_PRODUCTS" (
    "PRODUCT_ID"  NVARCHAR(50)  NOT NULL,
    "PRODUCT_TYPE"  NVARCHAR(50),
    "PRODUCT_NAME"  NVARCHAR(50),
-   "PRODUCT_PRICE"  NVARCHAR(50)
+   "PRODUCT_PRICE"  Decimal(22,3)
 , primary key  ( 
      "PRODUCT_ID")
 )

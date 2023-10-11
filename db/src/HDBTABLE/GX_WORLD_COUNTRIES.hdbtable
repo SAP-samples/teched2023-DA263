@@ -8,5 +8,5 @@ column table "GX_WORLD_COUNTRIES" (
    "AFF_ISO"      NVARCHAR(2),
    "SHAPE_Leng"   DECIMAL(24, 15),
    "SHAPE_Area"   DECIMAL(24, 15),
-   "SHAPE"        ST_GEOMETRY
+   "SHAPE"        ST_GEOMETRY  (1000004326)
 )
