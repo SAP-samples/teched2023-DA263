@@ -9,6 +9,7 @@ This repository contains the material for the SAP TechEd 2023 session called Ses
 ## Overview
 
 This session introduces attendees to HANA Features using HANA Deployment Infrastructure (HDI) as:
+
 - IN-MEMORY-COLUMN TABLES
 - DATA-TIERING
 - MULTI-MODEL--SPATIAL
@@ -19,11 +20,12 @@ This session introduces attendees to HANA Features using HANA Deployment Infrast
 ## Requirements
 
 The requirements to follow the exercises in this repository are :
- - Basic understanding how to use a database in the cloud
- - Access to a SAP Business Technology Platform development environment
-    - Provided by the course at TechEd
-    - Trial Account from SAP for SAP HANA
- - Using SAP Business Application Studio and HANA Database Exlorere
+
+- Basic understanding how to use a database in the cloud
+- Access to a SAP Business Technology Platform development environment
+-- Provided by the course at TechEd
+-- Trial Account from SAP for SAP HANA
+- Using SAP Business Application Studio and HANA Database Exlorere
 
 ## Exercises
 
@@ -36,9 +38,11 @@ The requirements to follow the exercises in this repository are :
 - [Exercise 6 - AUTOML](Exercises_Content/9_1_HC_AutoML)
 
 ## Contributing
+
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
 
 ## Code of Conduct
+
 Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## How to obtain support
@@ -46,5 +50,5 @@ Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
 
 ## License
-Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
 
+Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
