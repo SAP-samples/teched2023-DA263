@@ -5,7 +5,7 @@ In this exercise, you will set up your environment for the workshop
 
 After completing these steps you will have configured a SAP Business Application Studio for this exercise.
 
-1.	https://da263-pj0569xc.authentication.ap11.hana.ondemand.com/login
+1.	[SAP Business Application Studio] (https://da263-pj0569xc.authentication.ap11.hana.ondemand.com/login)
 
 <br>![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/LoginScreen.png)
 
