@@ -45,11 +45,11 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 
 1. Open the **[SAP Business Application Studio](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)**
 
-2. Select **Sign into another account**
+2. [Empty BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_EMPTY.png)
 
-<BR> ![Empty BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_EMPTY.png)
+3. [Cloning Git into BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE.png)
 
-3. Type  ****{placeholder|idpplatform}**** as the IDP and then select **Sign in with alternative identity provider**.
+-- Cloning name is **https://github.com/SAP-samples/teched2023-DA263.git** 
 
    <!-- **NOTE:** If you are an **SAP partner**, enter `academy-platform` and click on **Sign in with alternative identity provider** -->
 
