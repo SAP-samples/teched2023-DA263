@@ -41,13 +41,13 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 
 </br>
 
-### Cloning our project
+### Cloning our project from GIT
 
 1. Open the **[SAP Business Application Studio](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)**
 
 2. Select **Sign into another account**
 
-![](./Images/DBX_Intro/DBX_Image_DBXSignIn.png)
+<BR> ![Empty BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_EMPTY.png)
 
 3. Type  ****{placeholder|idpplatform}**** as the IDP and then select **Sign in with alternative identity provider**.
 
