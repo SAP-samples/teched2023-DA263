@@ -1,0 +1,42 @@
+{
+   "format_version" : 1,   
+   "imports" :[
+      {
+         "target_table": "GX_SALES",
+         "source_data": {
+            "data_type": "CSV",
+            "file_name": "GX_SALES.csv", 
+            "has_header": true,
+            "type_config": {
+               "delimiter": ";"
+            }
+         },
+         "import_settings" : { 
+            "import_columns" : [
+               "SALES_ID",
+               "SALES_DATE",
+               "SALES_TIME",
+               "CUSTOMER_ID",
+               "PRODUCT_ID",
+               "QUANTITY",
+               "DISCOUNT_PERCENTAGE",
+               "DISCOUNT_AMOUNT",
+               "PRICE"
+            ],
+            "include_filter" : []
+         },
+         "column_mappings": {
+            "SALES_ID" : 1,
+            "SALES_DATE" : 2,
+            "SALES_TIME" : 3,
+            "CUSTOMER_ID" : 4,
+            "PRODUCT_ID" : 5,
+            "QUANTITY" : 6,
+            "DISCOUNT_PERCENTAGE" : 7,
+            "DISCOUNT_AMOUNT" : 8,
+            "PRICE" : 9
+         
+         }
+      }
+   ]
+}

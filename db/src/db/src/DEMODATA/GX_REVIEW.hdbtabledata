@@ -1,0 +1,16 @@
+{ 
+  "format_version": 1,
+  "imports": [{
+     "column_mappings": { 
+       "GX_REVIEW": 1 
+     }, 
+     "is_collection_table": true, 
+     "source_data": { 
+       "data_type": "CSV", 
+       "dialect": "HANA-JSON", 
+       "file_name": "GX_REVIEW.csv", 
+       "has_header": false 
+     }, 
+     "target_table": "GX_REVIEW" 
+  }] 
+} 

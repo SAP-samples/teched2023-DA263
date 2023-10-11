@@ -1,0 +1,11 @@
+
+
+column table "GX_NODES" (
+   "node_id"  NVARCHAR(50)  NOT NULL,
+   "name"  NVARCHAR(50),
+   "priority"  NVARCHAR(10),
+   "fragile"  NVARCHAR(10),
+   "IN_SCOPE"  INTEGER
+, primary key  ( 
+     "node_id")
+)
