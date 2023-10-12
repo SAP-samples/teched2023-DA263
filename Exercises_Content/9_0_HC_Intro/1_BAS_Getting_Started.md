@@ -63,7 +63,14 @@ Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 
 7. Create your HDI container
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_7_HDI_CREATE.gif)
-7
+
+8. Connect your HDI container
+![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_8_OPEN_DBX.gif)
+
+
+
+
+
 After successfully logging in to the SAP HANA Cloud Database Explorer, the next step is to copy the data for the exercises.
 
 </br>
