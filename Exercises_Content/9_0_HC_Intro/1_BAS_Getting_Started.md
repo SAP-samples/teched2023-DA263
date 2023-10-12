@@ -54,7 +54,7 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 3. Cloning Git into BAS
 ![Cloning Git into BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE.png)
 
-Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
+        Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 
 4. Read to clone
 ![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_4_CLONE_NAME.png)
