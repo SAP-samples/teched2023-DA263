@@ -14,7 +14,3 @@ resources:
   type: com.sap.xs.hdi-container
   properties:
     hdi-container-name: ${service-name}
-- name: cross-container-service-1
-  type: deleteme
-- name: cross-container-service-2
-  type: deleteme
