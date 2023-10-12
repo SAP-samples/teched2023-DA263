@@ -10,8 +10,7 @@ column table "GX_EMPLOYEES" (
    "EMPLOYEE_REGION"       NVARCHAR(50),
    "EMPLOYEE_ZIPCODE"      NVARCHAR(50),
    "EMPLOYEE_T-LEVEL"      NVARCHAR(50),
-   "EMPLOYEE_EDUCATION"    NVARCHAR(50),
-
-, primary key  ( 
+   "EMPLOYEE_EDUCATION"    NVARCHAR(50), 
+primary key  ( 
 "EMPLOYEE_ID")
 )
