@@ -65,7 +65,7 @@ Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_7_HDI_CREATE.gif)
 
 8. Connect your HDI container
-![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_8_OPEN_DBX.gif)
+![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_8_OPEN_DBX.png)
 
 
 
