@@ -53,7 +53,7 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 
 4. Read to clone
-![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE_NAME.png)
+![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_4_CLONE_NAME.png)
 
 5. Arrange the panel
 ![Arrange the panel](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_5_PROJECT.gif)
