@@ -53,7 +53,7 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 
 4. Read to clone
-![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE.png)
+![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE_NAME.png)
 
 5. Arrange the panel
 ![Arrange the panel](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_5_PROJECT.gif)
@@ -61,6 +61,9 @@ Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 6. Connect to Cloud Foundry (CF login)
 ![CF login](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_6_CF_LOGIN.gif)
 
+7. Create your HDI container
+![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_7_HDI_CREATE.gif)
+7
 After successfully logging in to the SAP HANA Cloud Database Explorer, the next step is to copy the data for the exercises.
 
 </br>
