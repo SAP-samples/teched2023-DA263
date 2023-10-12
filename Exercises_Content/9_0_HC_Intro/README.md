@@ -36,22 +36,11 @@ After completing these steps you will have configured a SAP Business Application
 You will loose no content. The whole content will be saved and restored.
 
 
-2.	Insert this code.
-``` sql
- DATA(params) = request->get_form_fields(  ).
- READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
-```
-
 ## Summary
 
 Now that you have completed the set up
 
- - Continue to - [Exercise 1 Getting Started](/Exercises_Content/9_0_HC_Intro/1_DBX_Getting_Started.md)
- - Continue to - [Exercise 2 Introduction](/Exercises_Content/9_0_HC_Intro/2_DBX_Introduction.md)
- - Continue to - [Exercise 3 Introduction](/Exercises_Content/9_0_HC_Intro/3_Start_our_project.md)
- - Continue to - [Main page](../../README.md)
+- Continue to - [Exercise 1 Getting Started](/Exercises_Content/9_0_HC_Intro/1_BAS_Getting_Started.md)
+- Continue to - [Exercise 2 Introduction](/Exercises_Content/9_0_HC_Intro/2_BAS_Introduction.md)
+- Continue to - [Exercise 3 Introduction](/Exercises_Content/9_0_HC_Intro/3_Start_our_project.md)
+- Continue to - [Main page](../../README.md)

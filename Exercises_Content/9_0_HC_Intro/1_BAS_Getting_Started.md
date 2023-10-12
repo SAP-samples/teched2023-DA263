@@ -47,50 +47,18 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 
 2. ![Empty BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_EMPTY.png)
 
-3. ![Cloning Git into BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE.png)
+3. Cloning Git into BAS
+![Cloning Git into BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE.png)
 
--- Cloning name is **https://github.com/SAP-samples/teched2023-DA263.git** 
+-- Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 
-   <!-- **NOTE:** If you are an **SAP partner**, enter `academy-platform` and click on **Sign in with alternative identity provider** -->
+4. Read to clone
+![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_3_CLONE.png)
 
-![](./Images/DBX_Intro/DBX_Image_IDPSignIn.png)
+5. Arrange the panel
+![Arrange the panel](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_4_CLONE_NAME.png)
 
-</br>
-
->**Note:** If the following Application Authorization screen appears, click on **AUTHORIZE** to continue.
-
-</br>
-
-![](./Images/DBX_Intro/DBX_AppAuth.png)
-
-</br>
-
-4. Enter the following:
-
-   User: **{placeholder|userid}**
-
-   Password: **Provided by registration e-mail**
-
-  Then press the **Continue** button.
-
-![](./Images/DBX_Intro/DBX_Image_IDP2SignIn.png)
-
-</br>
-
-<!-- 5. Once you are in the Database Explorer, it will ask you for the credentials, use the same credentials as in earlier step to login to HANA Cloud. -->
-5. Once logged into the SAP HANA Cloud Database Explorer, the application will prompt to enter credentials. For logging in to SAP HANA Cloud, use the same credentials as in the earlier step.
-
-![](./Images/DBX_Intro/DBX_Image_DBXSignIn2.png)
-
-<!-- ![](./Images/DBX_Intro/Exercise1/image3.png) -->
-
-</br>
-
-The **SAP HANA Database Explorer** is ready:
-
-![](./Images/DBX_Intro/image24.png)
-
-</br>
+![Read to clone](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_5_PROJECT.png)
 
 After successfully logging in to the SAP HANA Cloud Database Explorer, the next step is to copy the data for the exercises.
 
