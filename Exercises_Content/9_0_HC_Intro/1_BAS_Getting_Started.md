@@ -74,19 +74,12 @@ Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 9. Connect to your (empty) HANA Database Explorer
 ![DBX](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_9_EMPTY_DBX.png)
 
-10. Connect your HDI container
+10. Deploy Content to your HDI container
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_90_BAS_DEPLOY.png)
 
-11. Connect your HDI container
+11. Use your DBX to view the tables and data
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_91_DBX_TABLES.png)
-
-
-
-
-
-After successfully logging in to the SAP HANA Cloud Database Explorer, the next step is to copy the data for the exercises.
 
 </br>
 
 **Congratulations!** The data and tools for the exercises are now ready for use. Please keep the BAS and the DB Explorer window open as you continue through the exercises.
-<!-- Before starting the exercises, it is recommended to take a look at the next lesson, which introduces the user to the importance and rationale behind using SAP HANA (*'Why'* of HANA). -->
