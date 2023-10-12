@@ -44,9 +44,9 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 ### Cloning our project from GIT
 
 1. Open the **[SAP Business Application Studio](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)**
-<DIF>
--- Defining your Workspace for SAP Business Application Studio ![Define WS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_0_WS_START.png)
-</DIF>
+
+    1. Defining your Workspace for SAP Business Application Studio ![Define BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_0_BAS_DEFINE.png)
+    2. Starting your Workspace for SAP Business Application Studio ![Start BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_0_BAS_DEFINE.png)
 
 2. Empty Busines Application Studio
 ![Empty BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_EMPTY.png)
