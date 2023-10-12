@@ -9,7 +9,7 @@ After completing these steps you will have configured a SAP Business Application
 1. [SAP Business Application Studio] (<https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html>)
 
 <BR>
-![](/IMAGES_DA263/LoginScreen.png)
+![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/LoginScreen.png)
 
 ### USER:       <DA263-XXX@education.cloud.sap>    -> XXX is depending on our seat: 001 .. 045
 
