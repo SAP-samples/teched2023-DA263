@@ -67,6 +67,15 @@ Cloning name is **<https://github.com/SAP-samples/teched2023-DA263.git>**
 8. Connect your HDI container
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_8_OPEN_DBX.png)
 
+9. Connect to your (empty) HANA Database Explorer
+![DBX](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_9_EMPTY.png)
+
+10. Connect your HDI container
+![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_90_BAS_DEPLOY.png)
+
+11. Connect your HDI container
+![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_91_DBX_TABLES.png)
+
 
 
 
