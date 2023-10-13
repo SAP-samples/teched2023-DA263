@@ -32,7 +32,7 @@ The requirements to follow the exercises in this repository are :
 - [Getting Started](Exercises_Content/9_0_HC_Intro/README.md)
 - [Exercise 1 - IN-MEMORY_COLUMN-TABLES](Exercises_Content/9_1_HC_HanaTables/README.md)
 - [Exercise 2 - DATA-TIERING](Exercises_Content/9_2_HC_DataTiering/README.md)
-- [Exercise 3 - MULTI-MODEL--SPATIAL](Exercises_Content/9_3_HC_Spatial/README.md)
+- [Exercise 3 - MULTI-MODEL--SPATIAL](Exercises_Content/9_3_Spatial.md)
 - [Exercise 4 - MULTI-MODEL--DOCUMENTSTORE](Exercises_Content/9_4_HC_DocumentStore/README.md)
 - [Exercise 5 - MULTI-MODEL--GRAPH](Exercises_Content/9_1_HC_Graph/README.md)
 - [Exercise 6 - AUTOML](Exercises_Content/9_1_HC_AutoML/README.md)
