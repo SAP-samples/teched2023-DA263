@@ -1,7 +1,6 @@
 
 Graphs can model different kinds of networks and linked data coming from many industries, such as logistics and transportation, utility networks, knowledge representation, and text processing.
 
-
 A graph is made up of a set of **vertices** and a set of **edges**. Vertices are the *entities* in the graph while the edges describe the *relationships* between vertices. 
 
 Each edge connects two vertices - one vertex is denoted as the source and the other as the target. Edges are always directed, but they can be oriented in either direction.
@@ -36,7 +35,7 @@ Explore the SAP HANA Cloud Graph engine with the following exercise which uses t
 
 ![](./Images/DBX_Graph/image003.png)
 
-
+<!--
 2. Use the Database Explorer SQL Console to create table constraints by running the following statements:
 
 ```sql
@@ -48,11 +47,13 @@ ADD FOREIGN KEY ("end") REFERENCES "GX_NODES" ("node_id") ON UPDATE CASCADE ON D
 ```
 
 ![](./Images/DBX_Graph/image004.png)
+-->
 
-3. Now create the graph workspace **GX_DELIVERIES** using the following SQL. The graph will appear in the **Graph Workspaces** upon successful creation.
+2. Now go to the BAS project and under db/src folder create a subfolder named **GRAPHWORKSPACE**.
+Right click on the folder and create a new file.Name it  **GX_DELIVERIES.hdbgraphworkspace** and copy below code in the code editor
 
 ```sql
-CREATE GRAPH WORKSPACE "GX_DELIVERIES" 
+GRAPH WORKSPACE "GX_DELIVERABLE"
 EDGE TABLE "GX_EDGES" 
 	SOURCE COLUMN "start" 
 	TARGET COLUMN "end" 
@@ -62,53 +63,54 @@ VERTEX TABLE "GX_NODES"
 ```
 </br>
 
-![](./Images/DBX_Graph/image005.png)
+Look for the deploy button as highlighted in screen below.
+![](./Images/BAS_Graph/imagedeploy001.png)
+Now Click on deploy button.Wait for the deployment to finish.
 
-Now explore the *GX_DELIVERIES* graph.
+3. Once deployment is successfully completed, we can now explore the *GX_DELIVERIES* graph.
+To explore the graph,go to Database Explorer.Select **GX_DELIVERIES** in the catalog object **Graph Workspaces**, then right-click on it and select **View Graph**.
 
-4. To explore the graph, select **GX_DELIVERIES** in the catalog object **Graph Workspaces**, then right-click on it and select **View Graph**.
+![](./Images/DBX_Graph/image005_new.png)
 
-![](./Images/DBX_Graph/image006.png)
+4. The graph is displayed as below:
 
-5. The graph is displayed as below:
-
-![](./Images/DBX_Graph/image007.png)
+![](./Images/DBX_Graph/image007_new.png)
 
 > **Note:** The **Vertices** (nodes) represent all delivery locations.
 
 Analysis of the graph can be augmented by adding context such as labels and color schemes to highlight relationships.
 The following steps will change the color of the Vertices (Nodes) for priority deliveries to red.
 
-6. Click on the **Settings** icon in the top right corner to open a configuration menu for the graph. 
+5. Click on the **Settings** icon in the top right corner to open a configuration menu for the graph. 
 
-![](./Images/DBX_Graph/image007.1.png)
+![](./Images/DBX_Graph/image007.1_new.png)
 
-7. On the **Vertex** tab, under *Highlight Vertex*, set the following values to highlight the cities with priority delivery orders to red:
+6. On the **Vertex** tab, under *Highlight Vertex*, set the following values to highlight the cities with priority delivery orders to red:
 
 - Column: **priority**
 - Value: **TRUE**
 - Color: **Red**
 
-8. Click on **Apply** to see the changes on the graph.
+7. Click on **Apply** to see the changes on the graph.
 
-![](./Images/DBX_Graph/image008.png)
+![](./Images/DBX_Graph/image008_new.png)
 
 
 It's also possible to use this method to change the *Edge* settings on the graph.
 Alter the Edge configuration to display the delivery method and highlight any **drone** deliveries to red also.
 
-9. In the graph settings menu, select the **Edge** tab and make the following changes:
+8. In the graph settings menu, select the **Edge** tab and make the following changes:
 
 - Edge Label: **method**
 - Column: **method**
 - Value: **drone**
 - Color: **Red**
 
-![](./Images/DBX_Graph/image010.png)
+![](./Images/DBX_Graph/image010_new.png)
 
-10. Click on **Apply** and then **Close** to return to the graph.
+9. Click on **Apply** and then **Close** to return to the graph.
 
-![](./Images/DBX_Graph/image011.png)
+![](./Images/DBX_Graph/image011_new.png)
 
 </br>
 
@@ -142,19 +144,22 @@ Calculate the shortest path from one point to another in the graph using the bui
 - Direction: **Outgoing**
 - Weight Column: **length**
 
-![](./Images/DBX_Graph/image012.png)
+![](./Images/DBX_Graph/image012_new.png)
 
 4. Click on apply to see the result:
 
-![](./Images/DBX_Graph/image013.png)
+![](./Images/DBX_Graph/image013_new.png)
 
 <br>
 
 Find all nodes which are related to a particular node with the **Neighborhood** algorithm. The parameters for this algorithm include depth of search, and whether to search for incoming or outgoing edges. Let's see what other nodes are related to the Mannheim vertex.
 
-5. In the Algorithm drop-down box, select **Neighborhood**.
 
-6. Enter the following values as inputs:
+5. Reset the Graph.Click on **Reset Graph** button.
+
+6. In the Algorithm drop-down box, select **Neighborhood**.
+
+7. Enter the following values as inputs:
 
 - Start Vertex: **Mannheim**
 - Direction: **Incoming**
@@ -162,11 +167,11 @@ Find all nodes which are related to a particular node with the **Neighborhood** 
 - Max Depth: **1**
 
 
-![](./Images/DBX_Graph/image014.png)
+![](./Images/DBX_Graph/image014_new.png)
 
-7. Click on **Apply** to see the resulting graph.
+8. Click on **Apply** to see the resulting graph.
 
-![](./Images/DBX_Graph/image015.png)
+![](./Images/DBX_Graph/image015_new.png)
 
 </br>
 
@@ -178,52 +183,67 @@ GraphScript is a high-level, powerful, domain-specific language. GraphScript eas
 ------
 ### Try it out!
 
-1. Call the **Nearest-Neighbor** built-in algorithm from GraphScript. In the SQL Console paste and execute following code which creates a procedure called **SP_NHOOD**:
+1. Call the **Nearest-Neighbor** built-in algorithm from GraphScript. 
+Go to BAS and under db/src/TABLETYPES/GRAPH, create a new file named **TT_NODES.hdbtabletype**
+Paste below code in the editor and deploy
 
 
 ```sql
-CREATE TYPE "TT_NODES" AS TABLE ("node_id" NVARCHAR(50), "name" NVARCHAR(50));
+TYPE "TT_NODES" AS TABLE ("node_id" NVARCHAR(50), "name" NVARCHAR(50));
+```
 
+![](./Images/BAS_Graph/basimage002.png)
 
-CREATE OR REPLACE PROCEDURE "SP_NHOOD"(
+2. Under db/src/PROCEDURES/GRAPH ,create a new file named **SP_NHOOD.hdbprocedure** and paste below code in the editor and deploy
+```sql
+PROCEDURE "SP_NHOOD"(
 	IN startV NVARCHAR(50),
 	IN minDepth INTEGER,
 	IN maxDepth INTEGER,
 	OUT res "TT_NODES")
 LANGUAGE GRAPH READS SQL DATA AS
 BEGIN
-  GRAPH g = Graph("GX_DELIVERIES");
+  GRAPH g = Graph("GX_DELIVERABLE");
   VERTEX v_s = Vertex(:g, :startV);
   MULTISET<VERTEX> ms_n = Neighbors(:g, :v_s, :minDepth, :maxDepth);
   res = SELECT :v."node_id", :v."name" FOREACH v IN :ms_n;
-END;
+END
 
 ```
+</br>
 
-![](./Images/DBX_Graph/image016.png)
+![](./Images/BAS_Graph/basimage003.png)
 
 
-2. Now call the procedure **SP_NHOOD** with different parameters to check results.
+3. Now go to Database Explorer and call the procedure **SP_NHOOD** with different parameters to check results.
 
 ```sql
 CALL "SP_NHOOD"('Berlin', 0, 2, ?);
 ```
 
-![](./Images/DBX_Graph/image017.png)
+![](./Images/DBX_Graph/image017_new.png)
 
 </br>
 
 Use GraphScript to create a custom traverse algorithm.
 
-3. In the SQL Console paste and execute following code. It creates a procedure to calculate **Shortest-Path** distances to cities with high priority status.
+4. Go to BAS and under db/src/TABLETYPES/GRAPH, create a new file named **TT_PRIORITY.hdbtabletype**
+Paste below code in the editor and deploy. 
 
 ```sql
-CREATE TYPE "TT_PRIORITY" AS TABLE ("node_id" NVARCHAR(50), "distance" INTEGER, "hops" BIGINT);
+TYPE "TT_PRIORITY" AS TABLE ("node_id" NVARCHAR(50), "distance" INTEGER, "hops" BIGINT);
 
-CREATE OR REPLACE PROCEDURE "SP_PRIORITY"(IN startV NVARCHAR(50), OUT res "TT_PRIORITY")
+```
+![](./Images/BAS_Graph/basimage004.png)
+</br>
+
+5. Create a new file named **SP_PRIORITY.hdbprocedure** under db/src/PROCEDURES/GRAPH and paste below content.It creates a procedure to calculate **Shortest-Path** distances to cities with high priority status.Deploy the artifact.
+
+```sql
+PROCEDURE "SP_PRIORITY"(IN startV NVARCHAR(50), OUT res "TT_PRIORITY")
 LANGUAGE GRAPH READS SQL DATA AS
 BEGIN
-	GRAPH g = Graph("GX_DELIVERIES");
+	GRAPH g = Graph("GX_DELIVERABLE");
 	VERTEX v_s = Vertex(:g, :startV);
 	MULTISET<Vertex> rests = v IN Vertices(:g) WHERE :v."IN_SCOPE" == 1;
 	ALTER g ADD TEMPORARY VERTEX ATTRIBUTE (INT "distance" = 0);
@@ -235,21 +255,21 @@ BEGIN
 		rest."distance" = Weight(:p);
 	}
 	res = SELECT :v."node_id", :v."distance", :v."hops" FOREACH v IN :rests;
-END;
-
-CALL SP_PRIORITY(STARTV => ?,RES => ?)
-
+END
 ```
+![](./Images/BAS_Graph/basimage005.png)
+</br>
 
-![](./Images/DBX_Graph/image018.png)
+6. Now go to Database Explorer and call the procedure **SP_PRIORITY** with different parameters to check results.
+</br>
 
-4. This code creates an **SP_PRIORITY** object in Procedures. Right-click on the procedure name and select **Generate CALL Statement With UI**.
+7. Above code once deployed creates **SP_PRIORITY** object in Procedures. Right-click on the procedure name and select **Generate CALL Statement With UI**.
 
 ![](./Images/DBX_Graph/image020.png)
 
-5. The procedure's call statement is generated. Provide input value **Berlin** and click Run.
+8. The procedure's call statement is generated. Provide input value **Berlin** and click Run.
 
-![](./Images/DBX_Graph/image021.png)
+![](./Images/DBX_Graph/image021_new.png)
 
 The result of the GraphScript is the shortest distance in meters to each city plus the number of hops to get there.
 
@@ -269,7 +289,7 @@ Use OpenCypher directly within a SQL statement:</br>
 1. Run the following query from the SQL console:
 
 ```sql
-SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE "GX_DELIVERIES" QUERY
+SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE "GX_DELIVERABLE" QUERY
     '
     MATCH (point1)
     WHERE point1.fragile = ''TRUE''
@@ -278,7 +298,7 @@ SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE "GX_DELIVERIES" QUERY
 ) ORDER BY "destination";
 ```
 
-![](./Images/DBX_Graph/image023.png)
+![](./Images/DBX_Graph/image023_new.png)
 
 >**Note:** Only matched nodes with **'fragile' = 'TRUE'** have been selected.
 
@@ -286,7 +306,7 @@ SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE "GX_DELIVERIES" QUERY
 2. Select only edges (or relationships in Cypher terminology) from a city with a high priority to a valid city.
 
 ```sql
-SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE GX_DELIVERIES QUERY
+SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE GX_DELIVERABLE QUERY
     '
 	MATCH (point1)-[conn]->(point2)
 	WHERE point1.IN_SCOPE = 1 AND point2.priority = ''TRUE''
@@ -295,7 +315,7 @@ SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE GX_DELIVERIES QUERY
 ) ORDER BY "delivery_start";
 ```
 
-![](./Images/DBX_Graph/image024.png)
+![](./Images/DBX_Graph/image024_new.png)
 
 
 **Well done!** This completes the lesson on the SAP HANA Cloud Graph Engine. For further information on this topic, check out the following link.

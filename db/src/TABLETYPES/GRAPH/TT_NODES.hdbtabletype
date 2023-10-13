@@ -1,0 +1,1 @@
+TYPE "TT_NODES" AS TABLE ("node_id" NVARCHAR(50), "name" NVARCHAR(50));

@@ -1,0 +1,12 @@
+PROCEDURE "SP_NHOOD"(
+	IN startV NVARCHAR(50),
+	IN minDepth INTEGER,
+	IN maxDepth INTEGER,
+	OUT res "TT_NODES")
+LANGUAGE GRAPH READS SQL DATA AS
+BEGIN
+  GRAPH g = Graph("GX_DELIVERABLE");
+  VERTEX v_s = Vertex(:g, :startV);
+  MULTISET<VERTEX> ms_n = Neighbors(:g, :v_s, :minDepth, :maxDepth);
+  res = SELECT :v."node_id", :v."name" FOREACH v IN :ms_n;
+END

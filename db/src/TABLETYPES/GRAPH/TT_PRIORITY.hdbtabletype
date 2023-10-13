@@ -1,0 +1,1 @@
+TYPE "TT_PRIORITY" AS TABLE ("node_id" NVARCHAR(50), "distance" INTEGER, "hops" BIGINT);

@@ -1,0 +1,17 @@
+PROCEDURE "SP_PRIORITY"(IN startV NVARCHAR(50),out res "TT_PRIORITY")
+LANGUAGE GRAPH READS SQL DATA AS
+BEGIN
+    GRAPH g=GRAPH("GX_DELIVERABLE");
+    VERTEX v_s=VERTEX(:g,:startV);
+    MULTISET<Vertex> rests=v IN Vertices(:g) WHERE :v."IN_SCOPE"==1;
+    ALTER g ADD TEMPORARY VERTEX ATTRIBUTE (INT "distance"=0);
+    ALTER g ADD TEMPORARY VERTEX ATTRIBUTE (BIGINT "hops"=0L);
+    FOREACH rest in :rests {
+		VERTEX v_rest = Vertex(:g, :rest."node_id");
+		WeightedPath<INT> p = Shortest_Path(:g, :v_s, :v_rest, (Edge conn) => INTEGER { return :conn."length"; } );
+		rest."hops" = Length(:p);
+		rest."distance" = Weight(:p);
+	}
+	res = SELECT :v."node_id", :v."distance", :v."hops" FOREACH v IN :rests;
+
+END
