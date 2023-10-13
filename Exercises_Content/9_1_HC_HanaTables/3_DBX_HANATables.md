@@ -49,43 +49,89 @@ Column tables have several advantages:
 <!-- Let's look at how to create Row and Column tables in HANA.
 If you noticed from the SQL statements we ran in the *Getting Started* lesson, the syntax of creating a table in HANA is as follows: -->
 
-1. Let's explore how to create Row and Column tables in SAP HANA Cloud. The syntax for creating a table in HANA is as follows:
+1. Let's explore how to create Row and Column tables in SAP HANA Cloud using Business Application studio. Tables can be created in HANA using hdbtable and hdbmigrationtable artifacts.The DA263 project already has tables defined in HDBTABLE folder.Double click on the artifact GX_CUSTOMERS.hdbtable to view its definition
+![](./Images/BAS/GX_CUSTOMERS_TABLE.png)
 
-```sql
-CREATE TABLE <NAME_OF_TABLE>
-```
+2. Open Database Explorer to view its runtime artifact.
+![](./Images/BAS/OpenDBExplorer.png)
 
-2. By default, the SQL command creates a Column table. View the properties of a table by clicking on the table name. Filter on *GX_EMPLOYEES* and then click on **Properties** in the tab to the right.
+3. View the properties of a table by clicking on the table name.Click on Tables, Filter on *GX_CUSTOMERS* and then click on **Properties** in the tab to the right.
 
-![](./Images/DBX_Tables/image02.png)
+![](./Images/DBX_Tables/GX_CUSTOMERS_PROPERTIES.png)
 
 <!-- Here you wil see more details about the table such as name, schema, size, etc.  -->
 
 Upon clicking on **Properties** for the selected table, the additional details about the table appears including name, schema, size, and other relevant information.
 
-3. Look for the **Table Type** property, and you will see it is listed as a **COLUMN** table.
+4. Look for the **Table Type** property, and you will see it is listed as a **COLUMN** table.
 
-![](./Images/DBX_Tables/image03.png)
+![](./Images/DBX_Tables/GX_CUSTOMERS_TABLE_TYPE_COLUMN.png)
 
-4. Click on the **Runtime Information** tab to see the runtime details such as memory usage, disk size and record count.
+5. Click on the **Runtime Information** tab to see the runtime details such as memory usage, disk size and record count.
 
-![](./Images/DBX_Tables/image04.png)
+![](./Images/BAS/GX_CUSTOMERS_RUNTIME.png)
 
-To create a Row table, explicitly define the table type in the SQL statement.
+To create a Row table, define the table type as ROW in the hdbtable artifact.
 
-5. Open a new SQL console session and paste in the following SQL which will create a Row type table called **GX_EMPLOYEES_ROW** and populate it with the same data as before:
+6. Navigate to Business Application Studio.Select your project folder in the workspace and click F1 to open Command Palette or click View -> Command Palette
+
+![](./Images/BAS/CommandPalette.png)
+
+7. Type HANA to view the available commands with SAP HANA module. Click on **SAP HANA: Create SAP HANA Database Artifact**
+
+![](./Images/BAS/NewDatabaseArtifact_CP.png)
+
+8. In the **Create SAP HANA Database Artifact** interface, add */HDBTABLE* to the path as we want to create hdbtable artifacts in HDBTABLE folder.Select *Table(hdbtable)* as the **artifact type** and type *GX_CUSTOMERS_ROW* as **artifact name**
+
+![](./Images/BAS/GX_CUSTOMERS_ROW.png)
+
+9. Click on **Create**
+
+![](./Images/BAS/CreateBtn.png)
+
+10. Replace the following content into the *GX_CUSTOMER_ROW.hdbtable* file.
 
 ```sql
-CREATE ROW TABLE GX_EMPLOYEES_ROW as (SELECT * FROM "HC_DEV"."GX_EMPLOYEES");
+ROW TABLE "GX_CUSTOMERS_ROW" ("CUSTOMER_ID"  NVARCHAR(50)  NOT NULL,
+"CUSTOMER_LASTNAME"  NVARCHAR(50),
+"CUSTOMER_FIRSTNAME"  NVARCHAR(50),
+"CUSTOMER_SEX"  NVARCHAR(2),
+"CUSTOMER_BIRTHDAY"  DATE,
+"CUSTOMER_COUNTRY"  NVARCHAR(50),
+"CUSTOMER_REGION"  NVARCHAR(50),
+"CUSTOMER_REGIONNAME"  NVARCHAR(50),
+"CUSTOMER_POSTCODE"  NVARCHAR(10),
+"CUSTOMER_CITY"  NVARCHAR(50),
+"CUSTOMER_STREET"  NVARCHAR(50),
+"CUSTOMER_HOUSENUMBER"  NVARCHAR(50),
+"CUSTOMER_LATITUDE"  DECIMAL(22,8),
+"CUSTOMER_LONGITUDE"  DECIMAL(22,8),
+"CUSTOMER_EMAIL"  NVARCHAR(50),
+"CUSTOMER_PHONE"  NVARCHAR(50)
+, primary key  ( 
+  "CUSTOMER_ID")
+)
 ```
+11. Deploy the newly created table from *SAP HANA PROJECTS* view.
 
-6. The newly created table can now be seen in DB Explorer. Click on this table to open the details.
+![](./Images/BAS/DeployRowTable.png)
 
-![](./Images/DBX_Tables/image05.png)
+12. The newly created table can now be seen in DB Explorer. Open *SQL Console* and execute the following SQL to insert data
 
-7. Now select the runtime tab and observe the *Memory Consumption* details. The amount of memory required for a row table is higher than with the same data residing in a column table.
+![](./Images/BAS/OpenSQLConsole.png)
 
-![](./Images/DBX_Tables/image06.png)
+```SQL
+INSERT INTO "GX_CUSTOMERS_ROW" SELECT * FROM "GX_CUSTOMERS"
+```
+![](./Images/BAS/ExecuteSQL.png)
+
+13. Click on the table *GX_CUSTOMERS_ROW* to open the details.
+
+![](./Images/BAS/RowRuntime1.png)
+
+14. Now select the runtime tab and observe the *Memory Consumption* details. The amount of memory required for a row table is higher than with the same data residing in a column table.
+
+![](./Images/BAS/RowRuntime2.png)
 
 Column tables are more efficient and support faster query processing than row tables. For further information on data storage in SAP HANA Cloud, click [here](https://help.sap.com/docs/HANA_SERVICE_CF/6a504812672d48ba865f4f4b268a881e/bd2e9b88bb571014b5b7a628fca2a132.html).
 
@@ -128,43 +174,90 @@ Applications may actively control partitions, for example, by adding partitions 
 ------
 ### Try it out!
 
-Explore how to partition a table using practical examples. For demonstration purposes, use the **GX_EMPLOYEES** table, which contains a conveniently rounded number of 100,000 records. Note that any table can be partitioned.
+Explore how to partition a table using practical examples. For demonstration purposes, use the **GX_CUSTOMERS** table, which contains around 2000 records. Note that any table can be partitioned.
 
-Currently, the GX_EMPLOYEES table does not contain any partitions, and all 100,000 records are in a single table. Confirm by examining the metadata of the table in the SAP HANA Cloud Database Explorer. Upon inspection, observe that the Partition tab is blank, indicating the absence of any partitions in the table.
+Currently, the GX_CUSTOMERS table does not contain any partitions, and all 2000 records are in a single table. Confirm by examining the metadata of the table in the SAP HANA Cloud Database Explorer. Upon inspection, observe that the Partition tab is blank, indicating the absence of any partitions in the table.
 
-![](./Images/DBX_Tables/image07.png)
+![](./Images/BAS/gx_customers_partitions.png)
 
 By clicking on the **Columns** tab, it can be seen that all columns are sitting on Partition ID = 0:
 
-![](./Images/DBX_Tables/image08.png)
+![](./Images/BAS/partition_columns.png)
 
-Now let's partition the table.
+Now let's partition the table.There are two ways to partition an existing table created by *.hdbtable* plugin:
 
-1. Open a new SQL console and paste in the following code:
+   a. Modify the existing *.hdbtable* artifact definition and deploy. The *.hdbtable* plugin creates a new table with modified definition and does an internal table-copy from the old version.
+
+   b. Replace the *.hdbtable* artifact with a *.hdbmigrationtable* artifact.In contrast to the table plug-in (.hdbtable), the migration-table plug-in (.hdbmigrationtable) uses explicit versioning and migration tasks, which means that the modifications of the database table are explicitly specified in the design-time file and carried out on the database table exactly as specified, without incurring the cost of an internal table-copy operation.This behavior makes the .hdbmigrationtable plug-in especially useful for tables that contain a lot of data.
+
+For this exercise, we will modify the existing *.hdbtable* artifact. Migration table will be covered in the next exercise.
+
+1. Go to BAS and open GX_CUSTOMERS.hdbtable. Replace its content with the following.
 
 ```sql
-ALTER TABLE GX_EMPLOYEES PARTITION BY HASH(EMPLOYEE_ID) PARTITIONS 3;
+column table "GX_CUSTOMERS" (
+   "CUSTOMER_ID"  NVARCHAR(50)  NOT NULL,
+   "CUSTOMER_LASTNAME"  NVARCHAR(50),
+   "CUSTOMER_FIRSTNAME"  NVARCHAR(50),
+   "CUSTOMER_SEX"  NVARCHAR(2),
+   "CUSTOMER_BIRTHDAY"  DATE,
+   "CUSTOMER_COUNTRY"  NVARCHAR(50),
+   "CUSTOMER_REGION"  NVARCHAR(50),
+   "CUSTOMER_REGIONNAME"  NVARCHAR(50),
+   "CUSTOMER_POSTCODE"  NVARCHAR(10),
+   "CUSTOMER_CITY"  NVARCHAR(50),
+   "CUSTOMER_STREET"  NVARCHAR(50),
+   "CUSTOMER_HOUSENUMBER"  NVARCHAR(50),
+   "CUSTOMER_LATITUDE"  DECIMAL(22,8),
+   "CUSTOMER_LONGITUDE"  DECIMAL(22,8),
+   "CUSTOMER_EMAIL"  NVARCHAR(50),
+   "CUSTOMER_PHONE"  NVARCHAR(50)
+, primary key  ( 
+     "CUSTOMER_ID")
+) PARTITION BY HASH("CUSTOMER_ID") PARTITIONS 3;
 ```
+2. Deploy the updated artifact.
 
-This will partition the *GX_EMPLOYEES* table into 3 partitions, via a *HASH* partition function on the *EMPLOYEE_ID* column.
+![](./Images/BAS/deploy_customers.png)
 
-2. Refresh the metadata screen for the table, and you should now see that GX_EMPLOYEES is now made up of 3 separate partitions, with about 33k records in each partition.
+This will partition the *GX_CUSTOMERS* table into 3 partitions, via a *HASH* partition function on the *CUSTOMER_ID* column.
 
-![](./Images/DBX_Tables/image09.png)
+3. Open Database Explorer.Refresh the metadata screen for the table, and you should now see that GX_CUSTOMERS is now made up of 3 separate partitions.
 
-3. Run the following SQL query in the console and observe the result:
+![](./Images/BAS/partition_by_hash.png)
+
+4. Run the following SQL query in the console and observe the result:
 
 ```sql
-SELECT COUNT(*) FROM GX_EMPLOYEES;
+SELECT COUNT(*) FROM GX_CUSTOMERS;
 ```
-<!-- 4. You should see that 100k records are returned as the result. Although the table is now in 3 separate partitions, you do not need to alter any queries on the table. -->
+<!-- 4. You should see that 2K records are returned as the result. Although the table is now in 3 separate partitions, you do not need to alter any queries on the table. -->
 
-4. Upon querying the table, it can be observed that 100,000 records are returned as the result. Despite the fact that the table has been partitioned into three separate partitions, there is no need to make any alterations to the queries performed on the table. The partitioning is handled transparently by SAP HANA Cloud, ensuring that the query results remain consistent and accurate without requiring any modifications to the queries themselves.
+5. Upon querying the table, it can be observed that around 2000 records are returned as the result. Despite the fact that the table has been partitioned into three separate partitions, there is no need to make any alterations to the queries performed on the table. The partitioning is handled transparently by SAP HANA Cloud, ensuring that the query results remain consistent and accurate without requiring any modifications to the queries themselves.
 
-5. We can merge all the partitions and return to one single table with the following sql:
+5. We can merge all the partitions and return to one single table by replacing the GX_CUSTOMERS.hdbtable content to its original definition and deploying the artifact again:
 
 ```sql
-ALTER TABLE GX_EMPLOYEES MERGE PARTITIONS;
+column table "GX_CUSTOMERS" (
+   "CUSTOMER_ID"  NVARCHAR(50)  NOT NULL,
+   "CUSTOMER_LASTNAME"  NVARCHAR(50),
+   "CUSTOMER_FIRSTNAME"  NVARCHAR(50),
+   "CUSTOMER_SEX"  NVARCHAR(2),
+   "CUSTOMER_BIRTHDAY"  DATE,
+   "CUSTOMER_COUNTRY"  NVARCHAR(50),
+   "CUSTOMER_REGION"  NVARCHAR(50),
+   "CUSTOMER_REGIONNAME"  NVARCHAR(50),
+   "CUSTOMER_POSTCODE"  NVARCHAR(10),
+   "CUSTOMER_CITY"  NVARCHAR(50),
+   "CUSTOMER_STREET"  NVARCHAR(50),
+   "CUSTOMER_HOUSENUMBER"  NVARCHAR(50),
+   "CUSTOMER_LATITUDE"  DECIMAL(22,8),
+   "CUSTOMER_LONGITUDE"  DECIMAL(22,8),
+   "CUSTOMER_EMAIL"  NVARCHAR(50),
+   "CUSTOMER_PHONE"  NVARCHAR(50)
+, primary key  ( 
+     "CUSTOMER_ID")
+)
 ```
 </br>
 
@@ -173,7 +266,6 @@ Refresh the metadata screen for the table to see that it is a non-partitioned ta
 <!-- **Well done!** You should now have a good understanding of the management and partitioning of tables in HANA. -->
 
 
-<!-- The default table type is column-type tables. If the table type in a CREATE TABLE statement is not explicitly stated then the table will automatically be a column table. It is possible to override this behavior by setting the configuration parameter default_table_type in the sql section of the indexserver.ini file. The default table type for temporary tables is row-type.
 
 -------END OF ORIGINAL SECTION HERE ------------------->
 </br>
@@ -216,19 +308,29 @@ Local Tables:
 To demonstrate the concept, create a copy of the **GX_EMPLOYEES** table with Delta Merge initially disabled. This will allow us to examine the behavior of the table without the Delta Merge feature. Subsequently, the table will be populated with data for further analysis.
 
 
-1. Click on the SQL icon in the top left corner of Database Explorer to open a new SQL Console.
-
-![](./Images/DBX_Tables/image14.png)
-
-
-2. Copy and paste the following SQL statement and execute it by clicking on the green **Run** icon or by pressing the **F8** function key.
+1. Open BAS and create *LOCAL_EMPLOYEES* with following content and deploy
 
 ```sql
-CREATE COLUMN TABLE "LOCAL_EMPLOYEES" AS (SELECT * FROM GX_EMPLOYEES) NO AUTO MERGE;
+column table "LOCAL_EMPLOYEES" (
+   "EMPLOYEE_ID"  NVARCHAR(50)  NOT NULL,
+   "EMPLOYEE_FIRSTNAME"  NVARCHAR(50),
+   "EMPLOYEE_LASTNAME"  NVARCHAR(50),
+   "EMPLOYEE_ACCOUNT_NO"  NVARCHAR(50),
+   "EMPLOYEE_SALARY"  DECIMAL(8,2),
+   "EMPLOYEE_START_YEAR"  INTEGER,
+   "EMPLOYEE_GENDER"  NVARCHAR(1),
+   "EMPLOYEE_REGION"  NVARCHAR(50),
+   "EMPLOYEE_ZIPCODE"  NVARCHAR(50),
+   "EMPLOYEE_T-LEVEL"  NVARCHAR(50),
+   "EMPLOYEE_EDUCATION"  NVARCHAR(50)
+, primary key  ( 
+"EMPLOYEE_ID", "EMPLOYEE_START_YEAR")
+) NO AUTO MERGE
 ```
-</br>
 
-![](./Images/DBX_Tables/image15_2.png)
+![](./Images/BAS/deploy_local_employees.png)
+
+
 
 
 <!-- >**Note:** When you create a table in HANA, Delta Merge is automatically enabled by default - you don't have to explicitly mention how the table should handle the auto merge process upon creation. We are just specifying 'No Auto Merge' in this situation for demonstration purposes. For further details on the delta merge process, click [here](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/bd9ac728bb57101482b2ebfe243dcd7a.html). -->
@@ -239,21 +341,25 @@ CREATE COLUMN TABLE "LOCAL_EMPLOYEES" AS (SELECT * FROM GX_EMPLOYEES) NO AUTO ME
 
 Now it is possible to check the details of this table by selecting it in the Catalog.
 
-3. Expand **Catalog**, navigate to **Tables** and find the newly created table under the user schema.
+2. Expand **Catalog** in Database Explorer, navigate to **Tables** and find the newly created table under the container schema.
 
->**Note:** Filter on schema - **{placeholder|userid}** - and the table name if necessary to find it more easily.
+>**Note:** Filter on table name if necessary to find it more easily.
 
-![](./Images/DBX_Tables/image10.png)
+Open SQL Console and execute the following SQL to insert data
+
+```sql
+INSERT INTO LOCAL_EMPLOYEES SELECT * FROM GX_EMPLOYEES;
+```
+
+![](./Images/BAS/insert_data_employees.png)
 
 <br>
 
-4. Select the **LOCAL_EMPLOYEES** table to see its meta data.
+3. Select the **LOCAL_EMPLOYEES** table to see its meta data.
 
 Note a list of all the table columns, and their data types:
 
-![](./Images/DBX_Tables/image11.png)
-
-5. Select the **Runtime Information** tab.
+4. Select the **Runtime Information** tab.
 
 <!-- Here you will see further details about the table such as number of records, table size in memory and on disk, and other details about Partitions and Columns.
 For now we are just concerned with the section on **Memory Consumption**. -->
@@ -263,7 +369,7 @@ In the table details section, users will find additional information about the t
 In here, users can explore and analyze the memory consumption of the table, which is crucial for understanding the resource utilization and performance implications. By examining the memory consumption metrics, users can gain valuable insights into the table's memory footprint and make informed decisions regarding table management and optimization.
 
 
-![](./Images/DBX_Tables/image12.png)
+![](./Images/BAS/no_delta_merge1.png)
 
 <br>
 
@@ -273,53 +379,52 @@ From here, the total memory size of the table, along with how much of that is cu
 
 Now let's run some statements against this table and observe the results.
 
-6. Copy and paste the following SQL query into an SQL console and execute it by clicking on the green **Run** icon or by pressing the **F8** function key.
+5. Copy and paste the following SQL query into an SQL console and execute it by clicking on the green **Run** icon or by pressing the **F8** function key.
 
 ```sql
 SELECT * FROM "LOCAL_EMPLOYEES";
 ```
-7. Once the results are returned, click on **Messages** to see the execution statistics.
+6. Once the results are returned, click on **Messages** to see the execution statistics.
 
-![](./Images/DBX_Tables/image13.png)
+![](./Images/BAS/locla_employees_exec1.png)
 
-![](./Images/DBX_Tables/image16.png)
+
 
 Observe the main attributes of the query, such as *Elapsed Time*, *Prepare Time* and *Peak Memory consumed*.
 
-8. Now run the statement again by pressing the **F8** key once more, and observe the differences in these attributes.
+7. Now run the statement again by pressing the **F8** key once more, and observe the differences in these attributes.
 
-![](./Images/DBX_Tables/image16_Run2.png)
+![](./Images/BAS/local_employees_exec2.png)
 
-The time for statement preparation has reduced significantly, as this statement is now stored in the statement cache. Memory used has also been reduced by a large factor.
+The time for statement preparation has reduced significantly, as this statement is now stored in the statement cache. Memory used has also been reduced.
 
 The next step is to perform a delta merge on the table and observe the results.
 
-9. Copy and paste the following into an SQL console and execute it:
+8. Copy and paste the following into an SQL console and execute it:
 
 ```sql
 MERGE DELTA OF "LOCAL_EMPLOYEES";
 ```
 
-10. Now return to the tab which has the meta data of the *LOCAL_EMPLOYEES* table open, and click refresh to observe the change in memory statistics.
+9. Now return to the tab which has the meta data of the *LOCAL_EMPLOYEES* table open, and click refresh to observe the change in memory statistics.
 
-![](./Images/DBX_Tables/image17.png)
+![](./Images/BAS/load_into_main.png)
 
 The total memory consumption of the table has been reduced significantly, and the majority of the data is now stored in the Table's Main Storage area.
 
-![](./Images/DBX_Tables/image17_merge.png)
  
 Let's repeat the previous steps of running a *Select* SQL query against the table and observing the resulting statistics.
 
-11. Copy and paste the following SQL query and execute it:
+10. Copy and paste the following SQL query and execute it:
 
 ```sql
 SELECT * FROM "LOCAL_EMPLOYEES";
 ```
 </br>
 
-12. Once the results are returned, click on **Messages** to see the execution statistics.
+11. Once the results are returned, click on **Messages** to see the execution statistics.
 
-![](./Images/DBX_Tables/image16_Run3.png)
+![](./Images/BAS/after_delta_merge.png)
 
 Note that the Execution time, Prepare time and Memory used in the query should all be quite similar to the 2nd execution above.
 
@@ -352,12 +457,12 @@ Have a look at this in order to show the impact on performance.
 
 2. In the **Runtime Information** tab, select **Columns** to see more details about the table columns.
 
-![](./Images/DBX_Tables/image18a.png)
+![](./Images/BAS/runtime_columns1.png)
 
 
 3. As already seen, running queries on this table and selecting all columns, will result in each column being loaded into memory (Loaded status = 'TRUE').
 
-![](./Images/DBX_Tables/image18.png)
+![](./Images/BAS/runtime_columns2.png)
 
 4. Run the following SQL query again just to observe the runtime:
 
@@ -368,7 +473,7 @@ SELECT * FROM "LOCAL_EMPLOYEES";
 
 5. Observe a similar runtime to before.
 
-![](./Images/DBX_Tables/image19.png)
+![](./Images/BAS/execution_all.png)
 
 6. Force the table to be unloaded from memory. Copy and paste the following SQL, then execute it in the SQL console:
 
@@ -379,7 +484,7 @@ UNLOAD "LOCAL_EMPLOYEES";
 
 7. Go back to the tab with the meta data for the table still open, click on **refresh** and observe the updated values. The Loaded column is now set to 'FALSE' for all columns of the table.
 
-![](./Images/DBX_Tables/image20.png)
+![](./Images/BAS/unloaded_columns.png)
 
 
 8. Now run the **`SELECT *`** query again and observe the run-times. Either return to the SQL console that was previously open, and re-run the statement, or copy and paste the following SQL into a new console and execute:
@@ -391,12 +496,12 @@ SELECT * FROM "LOCAL_EMPLOYEES";
 
 > **Note** that the statement execution time includes an initial load back into memory.
 
-![](./Images/DBX_Tables/image21.png)
+![](./Images/BAS/execute_after_unload.png)
 
 
 9. As the previous query used all columns, the table should be fully loaded into memory again. To check this, click on 'Refresh' in the table metadata tab and observe the values in the 'Loaded' column.
 
-![](./Images/DBX_Tables/image22.png)
+![](./Images/BAS/columns_loaded_2.png)
 
 </br>
 
@@ -427,7 +532,7 @@ WHERE EMPLOYEE_SALARY > 50000;
 
 3. After the query has finished, refresh the metadata tab for the table and check the **Loaded** column. Only the four columns used in the query are set to *TRUE*. This means all data that was not relevant for the query was left on disk, and *only the required data* was moved to main memory.
 
-![](./Images/DBX_Tables/image23.png)
+![](./Images/BAS/partial_column_load.png)
 
 **Well done!** By now, you have acquired a solid understanding of in memory column tables and the advantages they offer. You now have experience creating these types of tables, exploring table properties, and effectively creating partitions for improved performance and data management.
 
