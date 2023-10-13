@@ -1,6 +1,7 @@
 
 Graphs can model different kinds of networks and linked data coming from many industries, such as logistics and transportation, utility networks, knowledge representation, and text processing.
 
+
 A graph is made up of a set of **vertices** and a set of **edges**. Vertices are the *entities* in the graph while the edges describe the *relationships* between vertices. 
 
 Each edge connects two vertices - one vertex is denoted as the source and the other as the target. Edges are always directed, but they can be oriented in either direction.
