@@ -110,6 +110,8 @@ Go to BAS project and click on SPATIAL VIEW folder and press F1 and type in 'han
 ![](./Images/DBX_Spatial/image011_new.png)
 
   Now click on 'Create SAP HANA Database Artifact' and fill in the details as shown below.
+  
+  **Please Note**: Path to create the artifacts should be as - ..../db/src/SPATIALVIEWS
 
   View name - VW_CUSTOMER_LOCATION and Click on Create.
 
