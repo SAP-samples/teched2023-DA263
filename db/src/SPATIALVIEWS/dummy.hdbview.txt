@@ -1,0 +1,2 @@
+VIEW "dummy"
+AS select 1 from dummy; 

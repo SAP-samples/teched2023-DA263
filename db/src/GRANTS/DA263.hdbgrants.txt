@@ -1,0 +1,9 @@
+{
+    "ServiceName_1": {
+        "application_user": {
+            "roles": [
+                "HDI_ML_GRANTOR_ROLE"
+            ]
+        }
+    }
+}

@@ -95,7 +95,7 @@ SELECT
 FROM "GX_CUSTOMERS";
 ```
 
-![](./Images/DBX_Spatial/image09.png)
+![](./Images/DBX_Spatial/image09_new.png)
 
 
 3. Double-click on a **LOCATION** entry which will render a map displaying the customer location:
@@ -104,12 +104,23 @@ FROM "GX_CUSTOMERS";
 
 </br>
 
-The next step is to include this logic within a database view for ease of reuse.
+4. The next step is to create database sql view for ease of reuse by creating an artifacts as shown below.
+Go to BAS project and click on SPATIAL VIEW folder and press F1 and type in 'hana database artifact'.
 
-4. Copy and paste the SQL statement below into the SQL Console, then execute the statement.
+![](./Images/DBX_Spatial/image011_new.png)
+
+  Now click on 'Create SAP HANA Database Artifact' and fill in the details as shown below.
+  
+  **Please Note**: Path to create the artifacts should be as - ..../db/src/SPATIALVIEWS
+
+  View name - VW_CUSTOMER_LOCATION and Click on Create.
+
+![](./Images/DBX_Spatial/image012_new.png)
+
+5. Copy and paste the SQL statement below into the Console as shown below.
 
 ```sql 
-CREATE VIEW "VW_CUSTOMER_LOCATION" AS
+VIEW "VW_CUSTOMER_LOCATION" AS
 SELECT CUSTOMER_ID,
   NEW ST_POINT(
     TO_DOUBLE(CUSTOMER_LONGITUDE),
@@ -119,9 +130,16 @@ SELECT CUSTOMER_ID,
 FROM "GX_CUSTOMERS";
 ```
 
-![](./Images/DBX_Spatial/image011.png)
+![](./Images/DBX_Spatial/image013_new.png)
 
->**Note:** Click on "Views" in the Catalog and verify that the newly created view is listed.
+  Now deploy this artifacts by clicking on Deploy Button (Rocket Icon).
+
+![](./Images/DBX_Spatial/image014_new.png)
+
+
+>**Note:** Now go to Database Explorer and Click on "Views" in the Catalog and verify that the newly created view is listed.
+
+![](./Images/DBX_Spatial/VW_CUSTOMER_LOCATION.png)
 
 </br>
 
@@ -152,12 +170,10 @@ FROM "VW_CUSTOMER_LOCATION";
 
 For this use case, reduce the set of customers to those only in Germany. Using the polygon from *GX_WORLD_COUNTRIES*, we can check which points are within are certain border. To further simplify processing, update the previously created view.
 
-1. Switch back to SQL Console, copy, paste and execute the following SQL statement:
+1. Switch back to BAS Artifact Console -'VW_CUSTOMER_LOCATION.hdbview', copy, paste and re-deploy the Artifact:
 
 ```sql
-drop view VW_CUSTOMER_LOCATION;
-
-CREATE VIEW "VW_CUSTOMER_LOCATION" AS
+VIEW "VW_CUSTOMER_LOCATION" AS
 SELECT CUSTOMER_ID,
   NEW ST_POINT(
     TO_DOUBLE(CUSTOMER_LONGITUDE),
@@ -176,11 +192,13 @@ WHERE "COUNTRY" = 'Germany'
   ) = 1;
 ```
 
-<!---![](./Images/DBX_Spatial/image014.png)--->
+<!---![](./Images/DBX_Spatial/VW_CUSTOMER_LOCATION_v2.png)--->
 
 </br>
 
 <!-- ![](./Images/DBX_Spatial/image015.png) -->
+![](./Images/DBX_Spatial/VW_CUSTOMER_LOCATION_v2.png)
+
 
 2. Now execute the following statement to organize all customers in Germany as a collection bordered by the German border (the filter condition of the SQL View checks whether the locations are in Germany).
 
@@ -206,11 +224,21 @@ WHERE "COUNTRY" = 'Germany';
 
 Using spatial processing, view the clustering of all customer locations in Germany.
 
-1. Switch back to SQL Console, copy, paste and execute the following SQL statement to create a new database view.
+1. Switch back to BAS and create database sql view for ease of reuse by creating an artifacts as shown below.
+Go to BAS project and click on SPATIAL VIEW folder and press F1 and type in 'hana database artifact'.
 
+![](./Images/DBX_Spatial/image011_new.png)
+
+  Now click on 'Create SAP HANA Database Artifact' and fill in the details as shown below.
+
+  View name - VW_SPATIAL_CLUSTERING and Click on Create.
+
+![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_1.png)
+
+Copy and paste the SQL statement below into the Console as shown below and Deploy the artifact.
 
 ```sql
-CREATE VIEW "VW_SPATIAL_CLUSTERING" AS
+VIEW "VW_SPATIAL_CLUSTERING" AS
 SELECT ST_ClusterID() AS ID,
   ST_ClusterCell() AS SHAPE,
   ST_ClusterCell().ST_PointOnSurface().ST_AsText() AS POINT,
@@ -219,21 +247,25 @@ FROM "VW_CUSTOMER_LOCATION" GROUP CLUSTER BY "CUSTOMER_LOCATION" USING HEXAGON X
 ORDER BY COUNT DESC;
 ```
 
+![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_2.png)
+
+
 2. Check under the *Views* area of the Catalog to verify that the View is visible.
 
-![](./Images/DBX_Spatial/image018.png)
+![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_3.png)
 
 Now look at the cluster result from different views.
 
 3. In Database Explorer, right-click on the **VW_SPATIAL_CLUSTERING** view and select **Open Data**.
 
-![](./Images/DBX_Spatial/image019new.png)
+![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_4.png)
+
 
 </br>
 
 4. Look at the largest hexagon with **200** entries by double-clicking the **SHAPE** entry. The result for the highest customer density is in an area around Frankfurt:
 
-![](./Images/DBX_Spatial/image020.png)
+![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_5.png)
 
 </br>
 
