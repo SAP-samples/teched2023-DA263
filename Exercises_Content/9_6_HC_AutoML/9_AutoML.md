@@ -38,9 +38,135 @@ The challenge is to predict whether a transaction is fraudulent or not. Such use
 
 Start this lesson by downloading the following zipped [JupyterLab NoteBook](./Files/FraudDetection_AutoML.ipynb.zip). Save the file locally and extract the notebook file. This file will be uploaded into the JupyterLab environment later in the exercise.</br>
 
-The data resides in the **{placeholder|userid}** schema, in table **GX_TRANSACTIONS**. Data is accessed from the Python environment directly in SAP HANA Cloud, and will leverage the native Auto Machine Learning capability in SAP HANA Cloud.
+The data resides in the HDI container schema, in table **GX_TRANSACTIONS**. Data is accessed from the Python environment directly in SAP HANA Cloud, and will leverage the native Auto Machine Learning capability in SAP HANA Cloud.
 
 All steps in this exercise will be based on the embedded Python code in the Notebook.
+
+### Setting up the environment
+
+1. To execute PAL and AutoML methods , the HDI container's application user (XXX_RT) needs to be assigned either the role *AFL__SYS_AFL_AFLPAL_EXECUTE* or *AFL__SYS_AFL_AFLPAL_EXECUTE_WITH_GRANT_OPTION*
+
+2. We will grant the required roles to the HDI container's application user by creating a User Provided Service and *.hdbgrants* artifact.
+
+3.Open Business Application Studio and click on **mta.yaml** in your project to view it. Observe that in the *requires* section of db module and *resources* section, there is a reference to the SAP HANA HDI service instance that is bound to the application
+
+![](./Images/BAS/mta_yml_1.png)
+
+3. Go to the SAP HANA PROJECTS view and click on **add database connection** as shown below
+
+![](./Images/BAS/Add_connection.png)
+
+4. If you are prompted with *Cloud Floundry Sign In*, proceed by selecting SSO passcode and clicking on the *Open a new browser page to generate your SSO passcode*. Skip to next step if *Cloud Floundry Sign In* is not prompted.
+
+5. In the **Add Database Connection** wizard, select *Create user-provided service instance from the drop-down.
+
+![](./Images/BAS/UPS1.png)
+
+6. Enter the following details and click **ADD**
+
+```
+Service instance name : DA263-XXX (replace XXX with your user login number)
+
+user name : HDI_ML_GRANTOR 
+
+password : Walldorf11 
+
+```
+
+![](./Images/BAS/UPS2.png)
+
+7. Check the *mta.yaml* file. Additional references to the created User Provided Service will be added automatically.
+
+![](./Images/BAS/mta_yaml_2.png)
+
+8. Open the generated *DA263-XXX.hdbgrants* file and replace its content with below.
+
+![](./Images/BAS/grants1.png)
+
+```sql
+{
+    "ServiceName_1": {
+        "application_user": {
+            "roles": [
+                "HDI_ML_GRANTOR_ROLE"
+            ]
+        }
+    }
+}
+```
+
+The above .hdbgrants artifact grants the role *HDI_ML_GRANTOR_ROLE* to the HDI container's application user (XXX_RT user) using the user provided service.
+
+9. Deploy the database module.
+
+![](./Images/BAS/Deployment.png)
+
+10. Now the HDI container's application user will have the required roles to execute AutoML methods.The application user and password can be found in the *.env* file
+
+![](./Images/BAS/env_file.png)
+
+11. To view the properties in *.env* in json format, create a dummy_env.json file and copy the contents of *.env* file into it. Remove the *VCAP_SERVICES='* at the beginning and a single quote "'" at the end.
+
+12. Right Click on the content and format document. We will use  **user** and **password** values of the hdi-shared service to connect to the HDI container and execute AutoML methods.
+
+![](./Images/BAS/env_variable.png)
+
+
+### Setting up dev space with python tools
+
+1. Let us create a new dev space with python tools enabled.  Open **[SAP Business Application Studio](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)** in a new window
+
+2. Create a new *Dev Space*
+
+![](./Images/BAS/Create_Dev_space.png)
+
+3. Provide any name for the new dev space, select *SAP Fiori* and on the right under *Additional SAP Extensions*, select **Python Tools**. CLick on **Create Dev Space**
+
+![](./Images/BAS/enable_python_tools.png)
+
+4. Once the new dev space is in *RUNNING* state , click on the dev space.
+
+![](./Images/BAS/dev_space_running.png)
+
+5. Once the workspace is loaded, we will create a folder to store our python jupyter notebook
+
+6. Open Terminal and execute the following commands
+
+![](./Images/BAS/new_terminal.png)
+
+```bash
+$ cd ~/projects/
+$ mkdir auto_ml_hana
+$ cd auto_ml_hana/
+```
+
+7. Open the folder in workspace
+
+![](./Images/BAS/open_folder.png)
+
+8. In the terminal , download pip, install it, add its location to PATH, and then proceed to install the hana-ml and hdbcli python packages which will be imported later in the notebook.
+
+```bash
+auto_ml_hana $ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py && python3 get-pip.py &&  echo "export PATH=/home/user/.local/bin:$PATH" >> .bashrc && source ~/.bashrc
+```
+```bash
+auto_ml_hana $ pip install hdbcli hana-ml 
+```
+```bash
+auto_ml_hana $ pip install shapely
+```
+
+9. After installations are done, right click on explorer pane and select upload
+
+
+
+10. 
+
+
+
+
+
+
 
 
 ### Logging into JupyterLab environment
