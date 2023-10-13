@@ -16,11 +16,11 @@ In today's fast-changing, technology-driven world, companies need to optimize th
 
 ### Business Challenges
 
-- Exponential growth of new types of business data
-- Reducing cost without increasing risk using hybrid landscapes with on-premise and cloud solutions
-- Deploying innovation that incorporates privacy and governmental regulations
-- Competitive and internal pressure to automate repetitive job functions 
-- Continuous cyber attacks jeopardizing enterprise data – and business reputations
+ - Exponential growth of new types of business data
+ - Reducing cost without increasing risk using hybrid landscapes with on-premise and cloud solutions
+ - Deploying innovation that incorporates privacy and governmental regulations
+ - Competitive and internal pressure to automate repetitive job functions 
+ - Continuous cyber attacks jeopardizing enterprise data – and business reputations
 
 </br>
 
