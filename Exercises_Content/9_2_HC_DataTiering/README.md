@@ -110,10 +110,6 @@ Deploy now
 
 ![](./Images/130_project_deploy.png)
 
-```sql
-MERGE DELTA OF GX_EMPLOYEES FORCE REBUILD
-```
-
 5. Refresh the **Runtime Information** tab for the GX_EMPLOYEES table
 
 ![partitions](./Images/140_employee_partition.png)
