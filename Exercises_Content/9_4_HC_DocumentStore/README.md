@@ -12,8 +12,6 @@ Some of the features include:
 
 ![](./Images/050_Intro_Concept.png)
 
-
-
 ------
 ### Try it out! 
 
@@ -43,7 +41,6 @@ SELECT * FROM GX_REVIEW
 6. The result is in a JSON string:
 
 ![Filtered](./Images/120_REVIEW_filtered.png)
-
 
 7. Specify each of the columns in the SQL statement to see the result in a relational format
 
@@ -139,29 +136,31 @@ FROM myView
 
 13. Finally, join Reviews with Customer and Product data to add more context:
 
-
+You will find the used view **myDocStoreView** in the HDI project
 ```sql
-create view myView 
-AS 
-SELECT PRODUCT_ID PID, CUSTOMER_ID,PRODUCT_NAME, REVIEW_RATING,REVIEW_TEXT FROM GX_REVIEWS; 
-(SELECT PID,P.PRODUCT_NAME, CUSTOMER_ID,REVIEW_RATING FROM myView INNER JOIN GX_PRODUCTS AS P
-ON myView.PID = P.PRODUCT_ID);
+SELECT 
+	PID, 
+	P.PRODUCT_NAME, 
+	CUSTOMER_ID, 
+	REVIEW_RATING 
+FROM myView 
+	INNER JOIN GX_PRODUCTS AS P ON myDocStoreView.PID = P.PRODUCT_ID;
 ```
 
 14. Now add in the customer details and review text:
+The view **"MYDOCSTOREVIEW"** can found in your HDI project
 
 ```sql
-select distinct PR.PID,PR.CUSTOMER_FIRSTNAME,GP.PRODUCT_NAME, PR.REVIEW_RATING, PR.REVIEW_TEXT 
-from (
-select * 
-from MYVIEW RE, GX_CUSTOMERS GC
-where RE.CUSTOMER_ID = GC.CUSTOMER_ID) PR, GX_PRODUCTS GP
-where PR.PID = GP.PRODUCT_ID;
+SELECT 
+	PID, 
+	P.PRODUCT_NAME, 
+	CUSTOMER_ID, 
+	REVIEW_RATING 
+FROM MYDOCSTOREVIEW
+	INNER JOIN GX_PRODUCTS AS P ON MYDOCSTOREVIEW.PID = P.PRODUCT_ID;
 ```
+![](./Images/170_REVIEW_HDI.png.png)
 
-![](./Images/DBX_DocStore/image015.png)
-
-</br>
 
 **Well done!!** This completes the lesson on the SAP HANA Cloud Document Store.
 For further information on this topic, check out the following link:</br>
