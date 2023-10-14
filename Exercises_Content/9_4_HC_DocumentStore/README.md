@@ -100,25 +100,41 @@ SELECT * FROM GX_REVIEW
 11. Aggregate the JSON Objects
 
 ```sql
-SELECT PRODUCT_ID,AVG(TO_BIGINT(REVIEW_RATING)) FROM "GX_REVIEWS" GROUP BY PRODUCT_ID ORDER BY PRODUCT_ID ASC;
+SELECT 
+	PRODUCT_ID,
+	AVG(TO_BIGINT(REVIEW_RATING)),
+	Count(PRODUCT_ID)
+FROM 
+	GX_REVIEW 
+GROUP BY 
+	PRODUCT_ID 
+ORDER BY 
+	PRODUCT_ID ASC;
 ```
 
-![](./Images/DBX_DocStore/image011.png)
-
-<br>
+![Aggregate](./Images/150_REVIEW_aggregate.png)
 
 12. The JSON data in the document store can easily combine with business data.
    
 ```sql
-WITH myView AS (SELECT PRODUCT_ID as PID,AVG(TO_BIGINT(REVIEW_RATING)) as AVGRATING FROM "GX_REVIEWS" GROUP BY PRODUCT_ID )
-       SELECT PID,PRODUCT_NAME,AVGRATING FROM myView INNER JOIN "GX_PRODUCTS"
-       ON myView.PID = PRODUCT_ID;
+WITH myView AS 
+(SELECT 
+	PRODUCT_ID						as PID,
+	AVG(TO_BIGINT(REVIEW_RATING))	as AVGRATING 
+FROM GX_REVIEW 
+GROUP BY 
+	PRODUCT_ID )
+
+SELECT 
+	PID,
+    PRODUCT_NAME,
+    AVGRATING 
+FROM myView 
+	INNER JOIN "GX_PRODUCTS" ON myView.PID = PRODUCT_ID;
+
 ```
 
-![](./Images/DBX_DocStore/image012.png)
-
-
-</br>
+![](./Images/REVIEW_view.png)
 
 
 13. Finally, join Reviews with Customer and Product data to add more context:
