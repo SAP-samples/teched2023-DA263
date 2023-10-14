@@ -134,7 +134,7 @@ FROM myView
 
 ```
 
-![](./Images/REVIEW_view.png)
+![](./Images/160_REVIEW_view.png)
 
 
 13. Finally, join Reviews with Customer and Product data to add more context:
