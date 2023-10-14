@@ -78,30 +78,61 @@ This example uses the **GX_EMPLOYEES** columnar table containing 100,000 records
 ![](./Images/openDBX.png)
 
 ***open GX_EMPLOYEES***
-![](./Images/100_view_employee.png)
 
 
 2. Click on the table to open the meta data screen.
 
-![](./Images/DBX_DT/image04.png)
+![](./Images/100_view_employee.png)
+
 
 3. Select the **Runtime Information** tab to view record count and memory consumption.
 
-![](./Images/DBX_DT/image05.png)
+![](./Images/110_view_employee_runtime.png)
 
 To free up memory, this table will be partitioned and some data will move to the NSE warm storage tier.
 
 <!--- Consider a situation where we might need to free up space in memory. We can partition this table as we saw in the last lesson, and then move a partition to Warm Storage (NSE) to see the effect on memory usage.--->
 
-4. Open an SQL console and run the following query which creates two similarly sized partitions based on the column **EMPLOYEE_GENDER**.
+4. This is done by partitions. If a partition is ***"PAGE LOADABLE"*** it is send to NSE storage. For the sample we choose START_YEAR. Only to show the principle of NSE. From a business perspective this may not make sense.
 
 ```sql
-ALTER TABLE "GX_EMPLOYEES" 
-PARTITION BY RANGE("EMPLOYEE_GENDER")
-((PARTITION VALUES = 'm', PARTITION OTHERS));
+Acolumn table "GX_EMPLOYEES" (
+   "EMPLOYEE_ID"           NVARCHAR(50)      NOT NULL,
+   "EMPLOYEE_FIRSTNAME"    NVARCHAR(50),
+   "EMPLOYEE_LASTNAME"     NVARCHAR(50),
+   "EMPLOYEE_ACCOUNT_NO"   NVARCHAR(50),
+   "EMPLOYEE_SALARY"       DECIMAL(8,2),
+   "EMPLOYEE_START_YEAR"   INTEGER           NOT NULL DEFAULT 1900,
+   "EMPLOYEE_GENDER"       NVARCHAR(1),
+   "EMPLOYEE_REGION"       NVARCHAR(50),
+   "EMPLOYEE_ZIPCODE"      NVARCHAR(50),
+   "EMPLOYEE_T-LEVEL"      NVARCHAR(50),
+   "EMPLOYEE_EDUCATION"    NVARCHAR(50),
+   primary key  ("EMPLOYEE_ID")
+   
+      ) 
+      PARTITION by 
+         HASH ("EMPLOYEE_ID") PARTITIONS 1 SUBPARTITION BY
+            RANGE("EMPLOYEE_START_YEAR")
+            (
+               (PARTITION 0 <= values < 2008 
+                  page loadable GROUP NAME 'HISTORY'),
+               (PARTITION others)
+            )
+
 ```
 
-![](./Images/DBX_DT/image06.png)
+To run this change we have prepared a GX_EMPLOYEES.hdbmigrationtable.
+Rename both files before deploying again
+
+- /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.txt
+- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrtiontable.txt -> GX_EMPLOYEES.hdbmigrationtable
+
+This will change the table to be partitioned. Also you learned how to convert a *.hdbtable to a *.hdbmigrationtable artifact.
+Deploy now
+
+
+
 
 5. Refresh the **Runtime Information** tab for the GX_EMPLOYEES table and select the **Partitions** tab. Two partitions have been created and *Loaded Status* for them is *FULL*, meaning both partitions are fully loaded into memory. 
 Note the current **Total Memory Consumption** which is 2.8 MB for the table in memory.
