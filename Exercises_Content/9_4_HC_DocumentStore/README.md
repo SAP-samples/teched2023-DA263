@@ -29,9 +29,11 @@ Switch to the Database Explorer to work through the following exercises which us
 
 ![Start](./Images/100_DBX_Start.png)
 
+
 4. Execute the provided statement in the resulting SQL console.
 
-![Start](./Images/110_GX_REVIEW_result.png)
+![GX_REVIEW: Result](./Images/110_GX_REVIEW_result.png)
+
 
 5. Add a filter clause to the query by running the following statement.
 
