@@ -80,10 +80,10 @@ INSERT INTO "GX_REVIEW"
 9. Query the collection to look for the new entry.
 
 ```sql
-SELECT * FROM "GX_REVIEWS" WHERE REVIEW_ID='R_100123';
+SELECT * FROM GX_REVIEW WHERE REVIEW_ID='R_100123';
 ```
 
-![](./Images/DBX_DocStore/image09.png)
+![](./Images/135_REVIEW_insert_select.png)
 
 <br>
 
