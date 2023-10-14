@@ -73,9 +73,11 @@ The following exercise demonstrates how to enable Native Storage Extension for a
 
 This example uses the **GX_EMPLOYEES** columnar table containing 100,000 records, with its default persistency "in-memory" (hot).
 
-1. Open the Database Explorer, and expand **Catalog** -> **Tables** and find the **GX_EMPLOYEES** table.
+1. Open the Database Explorer, and expand **Tables** and find the **GX_EMPLOYEES** table.
 
 ![](./Images/openDBX.png)
+
+***open GX_EMPLOYEES***
 ![](./Images/100_view_employee.png)
 
 
