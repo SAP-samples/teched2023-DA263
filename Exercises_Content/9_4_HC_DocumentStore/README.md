@@ -17,26 +17,26 @@ Some of the features include:
 ------
 ### Try it out! 
 
-Switch to the Database Explorer to work through the following exercises which use the dataset from table **GX_REVIEWS** in the local **{placeholder|userid}** schema.
+Switch to the Database Explorer to work through the following exercises which use the dataset from table **GX_REVIEW**
 
 1. Select the catalog object **JSON Collections** to display the list of Collections.
 
-2. Right-click on the collection **GX_REVIEWS**.
+2. Right-click on the collection **GX_REVIEW**.
 
 3. Click on **Generate SELECT Statement**.
 
 >**Note:** SAP HANA Cloud uses the same SQL to access collections as column and row tables.
 
-![](./Images/DBX_DocStore/image04.png)
+![Start](./Images/100_DBX_Start.png)
 
 4. Execute the provided statement in the resulting SQL console.
 
-![](./Images/DBX_DocStore/image05.png)
+![Result](./Images/110_GX_REVIEW_result.png)
 
 5. Add a filter clause to the query by running the following statement.
 
 ```sql
-SELECT * FROM "GX_REVIEWS" WHERE REVIEW_ID='R_00012';
+SELECT * FROM GX_REVIEW WHERE REVIEW_ID='R_00012';
 ```
 
 6. The result is in a JSON string:
