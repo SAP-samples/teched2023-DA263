@@ -45,27 +45,34 @@ SELECT * FROM GX_REVIEW
 ![Filtered](./Images/110_GX_REVIEW_filtered.png)
 
 
-7. Specify each of the columns in the SQL statement to see the result in a relational format:
+7. Specify each of the columns in the SQL statement to see the result in a relational format
 
 ```sql
-SELECT REVIEW_ID,CUSTOMER_ID,PRODUCT_ID,REVIEW_RATING,REVIEW_TEXT FROM "GX_REVIEWS" WHERE REVIEW_ID='R_00012';
-```
+SELECT 
+	REVIEW_ID,
+	CUSTOMER_ID,
+	PRODUCT_ID,
+	REVIEW_RATING,
+	REVIEW_TEXT 
+FROM 
+	GX_REVIEW 
+WHERE 
+	REVIEW_ID='R_00012';
+       ```
 
-![](./Images/DBX_DocStore/image07.png)
-
-<br>
+![](./Images/125_REVIEW_select.png)
 
 8. Insert a new JSON Object to the collection.
 
 ```sql
-INSERT INTO "GX_REVIEWS" VALUES('{"REVIEW_ID":"R_100123",
+INSERT INTO "GX_REVIEW" VALUES('{"REVIEW_ID":"R_100123",
 "CUSTOMER_ID":"C_000000205",
 "PRODUCT_ID":"P_0046",
 "REVIEW_RATING":5,
 "REVIEW_TEXT":"Absolutely perfect"}');
 ```
 
-![](./Images/DBX_DocStore/image08.png)
+![insert](./Images/130_GX_REVIEW_insert.png)
 
 <br>
 
