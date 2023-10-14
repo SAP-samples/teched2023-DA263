@@ -1,7 +1,7 @@
 The speed at which a business accesses its data varies based on many different conditions. SAP HANA Cloud provides the capability to use additional storage tiers other than memory to store data based on access speed and data density needs. SAP HANA Native Store Extension (NSE) is the disk storage option for use with data less frequently accessed than in memory. Memory is still utilized but only for the data that is being used. The SAP HANA data lake also offers high density storage at capacities far greater than possible using the other storage tiers.
 
 
-![](./Images/DBX_DT/image01new2.png)
+![](./Images/image01new2.png)
 
 <!---Some of the tiered storage options available to manage large amounts of data beyond the scale of SAP HANA Cloud are **SAP HANA Native Storage Extension (NSE)** and **SAP HANA Data Lake**.
 </br>
@@ -12,7 +12,7 @@ Let's look at SAP HANA Cloud NSE in more detail, with some practical examples to
 
 ## SAP HANA Native Storage Extension
 
-![](./Images/DBX_DT/image_nse.png)
+![](./Images/image_nse.png)
 
 <!---**Capabilities:**</br>
 * Intelligent buffer cache to transfer pages of data between memory and disk
@@ -58,7 +58,7 @@ Warm data is primarily used to store read-only data that doesn't require frequen
 
 This image shows the difference between standard HANA in-memory storage and the storage offered with NSE:
 
-![](./Images/DBX_DT/image02.png)
+![](./Images/image02.png)
 
 The SAP HANA Native Storage Extension (NSE) feature for warm data storage is enabled by default in SAP HANA Cloud. Database developers may choose to assign specific tables, columns, or partitions to use NSE. SAP HANA NSE uses a dedicated in-memory buffer cache to load and unload pages of tables, table partitions or table columns. 
 <!---The initial buffer cache size of an SAP HANA Cloud instance is 10% of the instance's memory size. Changing the initial buffer cache size once the SAP HANA instance has been created--->
@@ -73,9 +73,11 @@ The following exercise demonstrates how to enable Native Storage Extension for a
 
 This example uses the **GX_EMPLOYEES** columnar table containing 100,000 records, with its default persistency "in-memory" (hot).
 
-1. Open the Database Explorer, expand **Catalog** -> **Tables** and find the **GX_EMPLOYEES** table.
+1. Open the Database Explorer, and expand **Catalog** -> **Tables** and find the **GX_EMPLOYEES** table.
 
-![](./Images/DBX_DT/image03.png)
+![](./Images/openDBX.png)
+![](./Images/100_view_employee.png)
+
 
 2. Click on the table to open the meta data screen.
 
