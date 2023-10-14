@@ -36,12 +36,13 @@ Switch to the Database Explorer to work through the following exercises which us
 5. Add a filter clause to the query by running the following statement.
 
 ```sql
-SELECT * FROM GX_REVIEW WHERE REVIEW_ID='R_00012';
-```
+SELECT * FROM GX_REVIEW 
+ WHERE REVIEW_ID='R_00012';
+ ```
 
 6. The result is in a JSON string:
 
-![](./Images/DBX_DocStore/image06.png)
+![Filtered](./Images/110_GX_REVIEW_filtered.png)
 
 
 7. Specify each of the columns in the SQL statement to see the result in a relational format:
