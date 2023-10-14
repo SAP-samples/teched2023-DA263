@@ -42,7 +42,7 @@ SELECT * FROM GX_REVIEW
 
 6. The result is in a JSON string:
 
-![Filtered](./Images/110_GX_REVIEW_filtered.png)
+![Filtered](./Images/120_REVIEW_filtered.png)
 
 
 7. Specify each of the columns in the SQL statement to see the result in a relational format
@@ -58,23 +58,24 @@ FROM
 	GX_REVIEW 
 WHERE 
 	REVIEW_ID='R_00012';
-       ```
+```
 
 ![](./Images/125_REVIEW_select.png)
 
 8. Insert a new JSON Object to the collection.
 
 ```sql
-INSERT INTO "GX_REVIEW" VALUES('{"REVIEW_ID":"R_100123",
-"CUSTOMER_ID":"C_000000205",
-"PRODUCT_ID":"P_0046",
-"REVIEW_RATING":5,
-"REVIEW_TEXT":"Absolutely perfect"}');
+INSERT INTO "GX_REVIEW" 
+       VALUES('{"REVIEW_ID":"R_100123",
+       "CUSTOMER_ID":"C_000000205",
+       "PRODUCT_ID":"P_0046",
+       "REVIEW_RATING":5,
+       "REVIEW_TEXT":"Absolutely perfect"}'
+       );
 ```
 
-![insert](./Images/130_GX_REVIEW_insert.png)
+![insert](./Images/130_REVIEW_insert.png)
 
-<br>
 
 9. Query the collection to look for the new entry.
 
