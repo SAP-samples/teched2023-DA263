@@ -83,20 +83,19 @@ INSERT INTO "GX_REVIEW"
 SELECT * FROM GX_REVIEW WHERE REVIEW_ID='R_100123';
 ```
 
-![](./Images/135_REVIEW_insert_select.png)
-
-<br>
+![ins_select](./Images/135_REVIEW_insert_select.png)
 
 10. Update the inserted entry and query the entry.
 
 ```sql
-UPDATE "GX_REVIEWS" SET REVIEW_TEXT='Hello again' WHERE REVIEW_ID='R_100123';
-SELECT * FROM "GX_REVIEWS" WHERE REVIEW_ID='R_100123';
+UPDATE GX_REVIEW 
+	SET REVIEW_TEXT='Hello again' 
+		WHERE REVIEW_ID='R_100123';
+SELECT * FROM GX_REVIEW 
+	WHERE REVIEW_ID='R_100123';
 ```
 
-![](./Images/DBX_DocStore/image010.png)
-
-<br>
+![update](./Images/140_REVIEW_update.png)
 
 11. Aggregate the JSON Objects
 
