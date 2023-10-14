@@ -96,7 +96,7 @@ To free up memory, this table will be partitioned and some data will move to the
 4. This is done by partitions. If a partition is ***"PAGE LOADABLE"*** it is send to NSE storage. For the sample we choose START_YEAR. Only to show the principle of NSE. From a business perspective this may not make sense.
 
 ```sql
-Acolumn table "GX_EMPLOYEES" (
+column table "GX_EMPLOYEES" (
    "EMPLOYEE_ID"           NVARCHAR(50)      NOT NULL,
    "EMPLOYEE_FIRSTNAME"    NVARCHAR(50),
    "EMPLOYEE_LASTNAME"     NVARCHAR(50),
@@ -125,12 +125,17 @@ Acolumn table "GX_EMPLOYEES" (
 To run this change we have prepared a GX_EMPLOYEES.hdbmigrationtable.
 Rename both files before deploying again
 
+![](./Images/120_employees_rename.png)
+
+
+
 - /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.txt
-- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrtiontable.txt -> GX_EMPLOYEES.hdbmigrationtable
+- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.txt -> GX_EMPLOYEES.hdbmigrationtable
 
 This will change the table to be partitioned. Also you learned how to convert a *.hdbtable to a *.hdbmigrationtable artifact.
 Deploy now
 
+![](./Images/130_project_deploy.png)
 
 
 
