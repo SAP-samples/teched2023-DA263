@@ -31,7 +31,7 @@ Switch to the Database Explorer to work through the following exercises which us
 
 4. Execute the provided statement in the resulting SQL console.
 
-![Result](./Images/110_GX_REVIEW_result.png)
+![Result](./Images/110_GX_REVIEW.png)
 
 5. Add a filter clause to the query by running the following statement.
 
