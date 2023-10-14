@@ -1,4 +1,4 @@
-# DATA Partitiong
+# DATA Partitionig
 
 The speed at which a business accesses its data varies based on many different conditions. SAP HANA Cloud provides the capability to use additional storage tiers other than memory to store data based on access speed and data density needs. SAP HANA Native Store Extension (NSE) is the disk storage option for use with data less frequently accessed than in memory. Memory is still utilized but only for the data that is being used. The SAP HANA data lake also offers high density storage at capacities far greater than possible using the other storage tiers.
 
@@ -34,7 +34,7 @@ Warm data is primarily used to store read-only data that doesn't require frequen
 
 This image shows the difference between standard HANA in-memory storage and the storage offered with NSE:
 
-![](./Images/image02.png)
+![Difference](./Images/image02.png)
 
 The SAP HANA Native Storage Extension (NSE) feature for warm data storage is enabled by default in SAP HANA Cloud. Database developers may choose to assign specific tables, columns, or partitions to use NSE. SAP HANA NSE uses a dedicated in-memory buffer cache to load and unload pages of tables, table partitions or table columns.
 <!---The initial buffer cache size of an SAP HANA Cloud instance is 10% of the instance's memory size. Changing the initial buffer cache size once the SAP HANA instance has been created--->
@@ -58,7 +58,7 @@ This example uses the **GX_EMPLOYEES** columnar table containing 100,000 records
 
 2. Click on the table to open the meta data screen.
 
-![](./Images/100_view_employee.png)
+![DBX view employee](./Images/100_view_employee.png)
 
 3. Select the **Runtime Information** tab to view record count and memory consumption.
 
@@ -100,7 +100,7 @@ column table "GX_EMPLOYEES" (
 To run this change we have prepared a GX_EMPLOYEES.hdbmigrationtable.
 Rename both files before deploying again
 
-![](./Images/120_employees_rename.png)
+![BAS rename](./Images/120_employees_rename.png)
 
 - /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.txt
 - /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.txt -> GX_EMPLOYEES.hdbmigrationtable
@@ -108,11 +108,11 @@ Rename both files before deploying again
 This will change the table to be partitioned. Also you learned how to convert a *.hdbtable to a*.hdbmigrationtable artifact.
 Deploy now
 
-![](./Images/130_project_deploy.png)
+![Deploy](./Images/130_project_deploy.png)
 
 5. Refresh the **Runtime Information** tab for the GX_EMPLOYEES table
 
-![partitions](./Images/140_employee_partition.png)
+![Partitions](./Images/140_employee_partition.png)
 
 **Well done!!** This completes the lesson on scaling SAP HANA Cloud at low cost to accommodate large amounts of data with less time-criticality.
 
