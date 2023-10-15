@@ -181,7 +181,7 @@ auto_ml_hana $ pip install shapely
 > **Tip:** Use the keyboard shortcut ***SHIFT+ENTER*** to execute the code cells throughout the rest of the Notebook.
 
 2. The **hana_ml** library enables you to directly connect to your SAP HANA Cloud tenant. Use the connection details in the table below:
-Get the **host**,**port**,**schema**,**user** and **password** of your HDI container service from the *.env* variable as shown in [step 12](#setting-up-dev-space-with-python-tools)
+Get the **host**,**port**,**schema**,**user** and **password** of your HDI container service from the *.env* variable as shown in [step 12](#setting-up-the-environment)
 
 ![](./Images/BAS/image02.png)
 
