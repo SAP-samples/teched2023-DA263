@@ -56,7 +56,7 @@ All steps in this exercise will be based on the embedded Python code in the Note
 
 ![](./Images/BAS/Add_connection.png)
 
-4. If you are prompted with *Cloud Floundry Sign In*, proceed by selecting SSO passcode and clicking on the *Open a new browser page to generate your SSO passcode*. Skip to next step if *Cloud Floundry Sign In* is not prompted.
+4. If you are prompted with *Cloud Floundry Sign In*, proceed by selecting SSO passcode and clicking on the *Open a new browser page to generate your SSO passcode* as shown in step 6 of [this guide](../9_0_HC_Intro/1_BAS_Getting_Started.md#cloning-our-project-from-git). Skip to next step if *Cloud Floundry Sign In* is not prompted.
 
 5. In the **Add Database Connection** wizard, select *Create user-provided service instance from the drop-down.
 
