@@ -89,4 +89,6 @@ Deploy now
 
 ![Partitions](./Images/140_employee_partition.png)
 
+As you see the savings are with small datasets even negative. This should not irritate you here and you can for sure use this with larger datasets.
+
 **Well done!!** This completes the lesson on scaling SAP HANA Cloud at low cost to accommodate large amounts of data with less time-criticality.
