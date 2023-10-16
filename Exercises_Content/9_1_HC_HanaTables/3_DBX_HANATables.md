@@ -72,7 +72,7 @@ Upon clicking on **Properties** for the selected table, the additional details a
 ![](./Images/BAS/GX_CUSTOMERS_RUNTIME.png)
 
 To create a Row table, define the table type as ROW in the hdbtable artifact. 
-Note : **Row tables are not recommended to use in production.** This exercise is for educational purpose to highlight the difference in memory consumption and performance between column and row store tables
+**Note** : **Row tables are not recommended to use in production.** This exercise is for educational purpose to highlight the difference in memory consumption and performance between column and row store tables
 
 6. Navigate to Business Application Studio.Select your project folder in the workspace and click F1 to open Command Palette or click View -> Command Palette
 
@@ -268,10 +268,7 @@ Refresh the metadata screen for the table to see that it is a non-partitioned ta
 
 
 
--------END OF ORIGINAL SECTION HERE ------------------->
 </br>
-
-------
 
 ## Data In Memory
 
@@ -354,7 +351,6 @@ INSERT INTO LOCAL_EMPLOYEES SELECT * FROM GX_EMPLOYEES;
 
 ![](./Images/BAS/insert_data_employees.png)
 
-<br>
 
 3. Select the **LOCAL_EMPLOYEES** table to see its meta data.
 
@@ -371,6 +367,7 @@ In here, users can explore and analyze the memory consumption of the table, whic
 
 
 ![](./Images/BAS/no_delta_merge1.png)
+
 
 From here, the total memory size of the table, along with how much of that is currently in the Delta Store and how much is in the Main Store, can be seen. Observe the fact that all the data is currently in delta, and the size of the table in memory is over 12 MB.
 
@@ -419,7 +416,7 @@ Let's repeat the previous steps of running a *Select* SQL query against the tabl
 ```sql
 SELECT * FROM "LOCAL_EMPLOYEES";
 ```
-</br>
+
 
 11. Once the results are returned, click on **Messages** to see the execution statistics.
 
