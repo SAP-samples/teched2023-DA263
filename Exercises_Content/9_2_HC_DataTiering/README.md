@@ -77,10 +77,10 @@ Rename both files before deploying again
 
 ![BAS rename](./Images/120_employees_rename.png)
 
-- /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.txt
-- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.txt -> GX_EMPLOYEES.hdbmigrationtable
+- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable -> GX_EMPLOYEES.hdbmigrationtable.V0.txt
+- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.V1.txt -> GX_EMPLOYEES.hdbmigrationtable
 
-This will change the table to be partitioned. Also you learned how to convert a *.hdbtable to a*.hdbmigrationtable artifact.
+This will change the table to be partitioned. 
 Deploy now
 
 ![Deploy](./Images/130_project_deploy.png)
