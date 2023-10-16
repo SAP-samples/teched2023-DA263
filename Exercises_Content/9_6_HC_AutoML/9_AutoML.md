@@ -36,7 +36,7 @@ The challenge is to predict whether a transaction is fraudulent or not. Such use
 ------
 ### Try it out!
 
-Start this lesson by downloading the following zipped [JupyterLab NoteBook](./Files/FraudDetection_AutoML.ipynb.zip). Save the file locally and extract the notebook file. This file will be uploaded into the JupyterLab environment later in the exercise.</br>
+Start this lesson by downloading the following zipped [JupyterLab NoteBook](./Files/FraudDetection_AutoML.ipynb.zip). Save the file locally and extract the notebook file. This file will be uploaded into the Jupyter environment later in the exercise.</br>
 
 The data resides in the HDI container schema, in table **GX_TRANSACTIONS**. Data is accessed from the Python environment directly in SAP HANA Cloud, and will leverage the native Auto Machine Learning capability in SAP HANA Cloud.
 
@@ -56,7 +56,7 @@ All steps in this exercise will be based on the embedded Python code in the Note
 
 ![](./Images/BAS/Add_connection.png)
 
-4. If you are prompted with *Cloud Floundry Sign In*, proceed by selecting SSO passcode and clicking on the *Open a new browser page to generate your SSO passcode*. Skip to next step if *Cloud Floundry Sign In* is not prompted.
+4. If you are prompted with *Cloud Floundry Sign In*, proceed by selecting SSO passcode and clicking on the *Open a new browser page to generate your SSO passcode* as shown in step 6 of [this guide](../9_0_HC_Intro/1_BAS_Getting_Started.md#cloning-our-project-from-git). Skip to next step if *Cloud Floundry Sign In* is not prompted.
 
 5. In the **Add Database Connection** wizard, select *Create user-provided service instance from the drop-down.
 
@@ -107,9 +107,11 @@ The above .hdbgrants artifact grants the role *HDI_ML_GRANTOR_ROLE* to the HDI c
 
 11. To view the properties in *.env* in json format, create a dummy_env.json file and copy the contents of *.env* file into it. Remove the *VCAP_SERVICES='* at the beginning and a single quote "'" at the end.
 
-12. Right Click on the content and format document. We will use  **user** and **password** values of the hdi-shared service to connect to the HDI container and execute AutoML methods.
+12. Right Click on the content and format document. We will use  **host**,**port**,**schema**,**user** and **password** values of the hdi-shared service to connect to the HDI container and execute AutoML methods.
 
 ![](./Images/BAS/env_variable.png)
+
+Note: Please make a note of the above values and we will be using it in following exercises.
 
 
 ### Setting up dev space with python tools
@@ -156,60 +158,17 @@ auto_ml_hana $ pip install hdbcli hana-ml
 auto_ml_hana $ pip install shapely
 ```
 
-9. After installations are done, right click on explorer pane and select upload
+9. After installations are done, download the jupyter notebook from this location [FraudDetection_AUtoML.ipynb](Files/FraudDetection_AutoML.ipynb.zip) and extract the file.
+
+10. Right Click on Explorer pane and select **Upload**. Browse to the location where the file has been saved and select it then click **Open**.
+
+11. The file will now appear in the Explorer pane. Double-click on the file to open it.
 
 
+12. The Notebook is now ready!
 
-10. 
+![](./Images/BAS/notebook.png)
 
-
-
-
-
-
-
-
-### Logging into JupyterLab environment
-
-1. Open the **JupyterLab URL**
-
-
-    **[JupyterLab](https://vsystem.ingress.dh-0nrw3t6sj.dh-canary.shoot.live.k8s-hana.ondemand.com/app/jupyter)**
-
-	<!-- **[JupyterLab](https://vsystem.ingress.dh-c509514j.dhaas-live.shoot.live.k8s-hana.ondemand.com/app/jupyter)** -->
-
-2. Enter the following:
-
-   Tenant: **xa-01**</br>
-   Username: **{placeholder|userid}**</br>
-   Password: **Provided by registration e-mail**
-
-  </br>
-
-  ![](./Images/DBX_AutoML/image003.png)
-
-    
-  ![](./Images/DBX_AutoML/image004.png)
-
-3. Then click the **Sign In** button.
-
-> The following steps will import the locally saved Notebook into JupyterLab.
-
-4. In the JupyterLab launchpad screen, select the **File Browser** icon, then click on **Upload Files**.
-
-![](./Images/DBX_AutoML/image005new.png)
-
-5. Browse to the location where the file has been saved and select it then click **Open**.
-
-<!---![](./Images/DBX_AutoML/image006.png)--->
-
-6. The file will now appear in the file area. Double-click on the file to open it.
-
-![](./Images/DBX_AutoML/image007new.png)
-
-7. The Notebook is now ready!
-
-![](./Images/DBX_AutoML/image008new.png)
 
 </br>
 
@@ -217,28 +176,30 @@ auto_ml_hana $ pip install shapely
 
 1. The first step is to import and install the **SAP HANA Cloud ML Library**. Select the first cell and click the execute button.
 
-![](./Images/DBX_AutoML/image009.png)
+![](./Images/BAS/image01.png)
 
 > **Tip:** Use the keyboard shortcut ***SHIFT+ENTER*** to execute the code cells throughout the rest of the Notebook.
 
 2. The **hana_ml** library enables you to directly connect to your SAP HANA Cloud tenant. Use the connection details in the table below:
+Get the **host**,**port**,**schema**,**user** and **password** of your HDI container service from the *.env* variable as shown in [step 12](#setting-up-the-environment)
 
-![](./Images/DBX_AutoML/image010.png)
+![](./Images/BAS/image02.png)
 
 <!-- ```
-hana_address = '13b7c15d-848f-40b5-9259-c9c36ab85f56.hna1.prod-eu10.hanacloud.ondemand.com'
+hana_address = 'aff1e6fd-3b13-4882-8c68-4fc9077e9976.hana.prod-ap11.hanacloud.ondemand.com'
 hana_port = 443
-hana_user = 'AC42602U01'
-hana_password = 'ObOXRxseos1!'
+hana_user = 'TECHED23_DA263_HDI_DB_2_EOOCKGWGE9L7JT4QS4ZDM9APW_RT'
+hana_password = 'Kq6Z_Ul8O32m7rDHS67phHnsylYU9VUg0fC4aY_a5c4Wo2kGXCawTFJJZD9xhXwIKoO7AuuYaqeX8ZEuKBDlADoFbajJ-nXy_HVA149JM6nKnzmXp77Cnmgso3v1NKmS'
 hana_encrypt = True #for HANA Cloud
+hana_schema = 'TECHED23_DA263_HDI_DB_2'
 ``` -->
 
 | **Input Type**    | **Values**                                                                 |
 | ----------------- | -------------------------------------------------------------------------- |
-| **Host name:**    | {placeholder|hc}}                                                          |
+| **Host name:**    | {placeholder|hc}                                                           |
 | **Host Port:**    | 443                                                                        |
 | **Username:**     | {placeholder|userid}                                                       |
-| **Password:**     | Provided during registration                                               |
+| **Password:**     | {placeholder|password}                                                     |
 | **HANA Encrypt:** | True                                                                       |
 
 </br>
@@ -246,24 +207,24 @@ hana_encrypt = True #for HANA Cloud
 3. Create a data frame through SQL or table function and get the row count.
 
 
-![](./Images/DBX_AutoML/image011.png)
+![](./Images/BAS/image03.png)
 
 4. Control data and convert the following variables accordingly.
 
 
-![](./Images/DBX_AutoML/image012.png)
+![](./Images/BAS/image04.png)
 
-![](./Images/DBX_AutoML/image013.png)
+![](./Images/BAS/image05.png)
 
 
 5. Control the conversion and take a look at a short description of the data. 
 
-![](./Images/DBX_AutoML/image014.png)
+![](./Images/BAS/image06.png)
 
 
 >**Note:** The target variable is called **Fraud**. In addition, there are eight predictors capturing different information from a transaction.
 
-![](./Images/DBX_AutoML/image015.png)
+![](./Images/BAS/image07.png)
 
 
 
@@ -273,26 +234,24 @@ hana_encrypt = True #for HANA Cloud
 6. Split the data into a training and testing set.
 
 
-![](./Images/DBX_AutoML/image016.png)
+![](./Images/BAS/image08.png)
 
 
 7. Control the size of the training and testing datasets.
 
-![](./Images/DBX_AutoML/image017.png)
+![](./Images/BAS/image09.png)
 
 
 8. Import the following dependencies for the Automatic Classification.
 
-![](./Images/DBX_AutoML/image018.png)
+![](./Images/BAS/image10.png)
 
 
 9. Manage the workload in SAP HANA Cloud tenant by creating workload classes. Please execute the following SQL script to set the workload class, which will be used in the Automatic Classification.
 
-![](./Images/DBX_AutoML/image019.png)
+![](./Images/BAS/image11.png)
 
 >**Note:** Ignore the error if the work class **PAL_AUTOML_WORKLOAD** already exists.
-
-![](./Images/DBX_AutoML/image020.png)
 
 </br>
 
@@ -309,69 +268,61 @@ Setting random_seed =1234 helps to get reproducable **AutoML** runs.
 
 1. Set the maximum runtime for individual pipeline evaluations with the parameter **max_eval_time_mins** or determine if the AutoML shall stop if there are no improvement for the set number of generations with the early_stop parameter. Further, you can set specific performance measures for the optimization with the scoring parameter.
 
-![](./Images/DBX_AutoML/image021.png)
+![](./Images/BAS/image12.png)
 
-![](./Images/DBX_AutoML/image022.png)
 
->**Important!** Change **\<YourName\>** to **{placeholder|userid}** in the **.format()** method.
+>**Important!** Change **\<YourName\>** to your user id **{DA263-XXX}** in the **.format()** method.
 
 
 2. Reinitialize and display the AutoML operators and their parameters.
 
-![](./Images/DBX_AutoML/image023.png)
+![](./Images/BAS/image13.png)
 
 >**Note:** A default set of AutoML classification operators and parameters is provided as the global config-dict, which can be adjusted to the needs of the targeted AutoML scenario. Use methods like **update_config_dict, delete_config_dict, display_config_dic** to update the scenario definition.
 
 3. Adjust some of the settings to narrow the searching space. As the resampling method choose the **SMOTETomek** method, since the data is imbalanced.
 
 
-![](./Images/DBX_AutoML/image024.png)
+![](./Images/BAS/image14.png)
 
 
 4. Exclude the Transformer methods. As machine learning algorithms keep the Hybrid Gradient Boosting Tree and Multi Logistic Regression.
 
-![](./Images/DBX_AutoML/image025.png)
+![](./Images/BAS/image15.png)
 
 
 5. Set some parameters for the optimization of the algorithms.
 
-![](./Images/DBX_AutoML/image026.png)
+![](./Images/BAS/image16.png)
 
 
 6. Review the complete AutoML configuration for the classification.
 
-![](./Images/DBX_AutoML/image027.png)
+![](./Images/BAS/image17.png)
 
 
 7. Fit the Auto ML scenario on the training data. It may take a couple of minutes. If it takes too long, exclude the **SMOTETomek** in the **resampler()** method of the config file.
 
-![](./Images/DBX_AutoML/image028.png)
-
-![](./Images/DBX_AutoML/image029.png)
+![](./Images/BAS/image19.png)
 
 
 8. Inspect the pipeline progress through the execution logs.
 
-![](./Images/DBX_AutoML/image030.png)
-
 
 9. Evaluate the best model on the testing data.
 
-![](./Images/DBX_AutoML/image031.png)
+![](./Images/BAS/image20.png)
 
 10. Create predictions with your machine learning model.
 
-![](./Images/DBX_AutoML/image032.png)
+![](./Images/BAS/image21.png)
 
-
-11. Save the best model in SAP HANA. Therefore, create a Model Storage. Change **'YourSchema'** in the code below to **{placeholder|userid}**. 
-
-![](./Images/DBX_AutoML/image033.png)
+11. Save the best model in SAP HANA. Therefore, create a Model Storage. Change **'YourSchema'** in the code below to **schema** of your HDI container. 
 
 
 12. Save the model through the following command.
 
-![](./Images/DBX_AutoML/image034.png)
+![](./Images/BAS/image22.png)
 
 </br>
 

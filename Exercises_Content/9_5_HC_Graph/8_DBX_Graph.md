@@ -50,7 +50,7 @@ ADD FOREIGN KEY ("end") REFERENCES "GX_NODES" ("node_id") ON UPDATE CASCADE ON D
 -->
 
 2. Now go to the BAS project and under db/src folder create a subfolder named **GRAPHWORKSPACE**.
-Right click on the folder and create a new file.Name it  **GX_DELIVERIES.hdbgraphworkspace** and copy below code in the code editor
+Right click on the folder and create a new file.Name it  **GX_DELIVERABLE.hdbgraphworkspace** and copy below code in the code editor
 
 ```sql
 GRAPH WORKSPACE "GX_DELIVERABLE"
@@ -67,8 +67,8 @@ Look for the deploy button as highlighted in screen below.
 ![](./Images/BAS_Graph/imagedeploy001.png)
 Now Click on deploy button.Wait for the deployment to finish.
 
-3. Once deployment is successfully completed, we can now explore the *GX_DELIVERIES* graph.
-To explore the graph,go to Database Explorer.Select **GX_DELIVERIES** in the catalog object **Graph Workspaces**, then right-click on it and select **View Graph**.
+3. Once deployment is successfully completed, we can now explore the *GX_DELIVERABLE* graph.
+To explore the graph,go to Database Explorer.Select **GX_DELIVERABLE** in the catalog object **Graph Workspaces**, then right-click on it and select **View Graph**.
 
 ![](./Images/DBX_Graph/image005_new.png)
 
