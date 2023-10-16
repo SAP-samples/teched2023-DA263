@@ -1,5 +1,5 @@
-== version = 3
-
+== version = 2
+ 
 column table "GX_EMPLOYEES" (
    "EMPLOYEE_ID"           NVARCHAR(50)      NOT NULL,
    "EMPLOYEE_FIRSTNAME"    NVARCHAR(50),
@@ -15,25 +15,4 @@ column table "GX_EMPLOYEES" (
    primary key  ("EMPLOYEE_ID")
    
       ) 
-      PARTITION by 
-         HASH ("EMPLOYEE_ID") PARTITIONS 1 SUBPARTITION BY
-            RANGE("EMPLOYEE_START_YEAR")
-            (
-               (PARTITION 0 <= values < 2008 
-                  page loadable GROUP NAME 'HISTORY'),
-               (PARTITION others)
-            )
-
-
-== migration = 3
-alter table "GX_EMPLOYEES" 
-PARTITION by 
-HASH ("EMPLOYEE_ID") PARTITIONS 1 SUBPARTITION BY
-   RANGE("EMPLOYEE_START_YEAR")
-   (
-      (PARTITION 0 <= values < 2008 
-         page loadable GROUP NAME 'HISTORY'),
-      (PARTITION others)
-   )
-
-
+   
