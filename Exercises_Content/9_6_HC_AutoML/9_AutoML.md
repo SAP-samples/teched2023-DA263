@@ -28,7 +28,6 @@ AutoML with SAP HANA Cloud is a great starting point to see what is possible wit
 
 For this section, a data set containing customer transactions as a table has already been loaded into the SAP HANA Cloud Database (**GX_TRANSACTIONS**). 
 
-<!-- In this section, we look at a concrete example to see what is possible through this new AutoML approach.  -->
 
 The challenge is to predict whether a transaction is fraudulent or not. Such use cases are often quite challenging due to imbalanced data and thus require different techniques before implementing a machine learning model.
 
@@ -185,14 +184,7 @@ Get the **host**,**port**,**schema**,**user** and **password** of your HDI conta
 
 ![](./Images/BAS/image02.png)
 
-<!-- ```
-hana_address = 'aff1e6fd-3b13-4882-8c68-4fc9077e9976.hana.prod-ap11.hanacloud.ondemand.com'
-hana_port = 443
-hana_user = 'TECHED23_DA263_HDI_DB_2_EOOCKGWGE9L7JT4QS4ZDM9APW_RT'
-hana_password = 'Kq6Z_Ul8O32m7rDHS67phHnsylYU9VUg0fC4aY_a5c4Wo2kGXCawTFJJZD9xhXwIKoO7AuuYaqeX8ZEuKBDlADoFbajJ-nXy_HVA149JM6nKnzmXp77Cnmgso3v1NKmS'
-hana_encrypt = True #for HANA Cloud
-hana_schema = 'TECHED23_DA263_HDI_DB_2'
-``` -->
+
 
 | **Input Type**    | **Values**                                                                 |
 | ----------------- | -------------------------------------------------------------------------- |
@@ -319,6 +311,7 @@ Setting random_seed =1234 helps to get reproducable **AutoML** runs.
 
 11. Save the best model in SAP HANA. Therefore, create a Model Storage. Change **'YourSchema'** in the code below to **schema** of your HDI container. 
 
+**Note**: Please note that we are using HDI container schema here for this exercise to save the ML models in tables in HANA CLoud. This approach is not recommeneded in production as all objects in HDI container schema should get created via HDI design time deployment. In production, it is recommended to use a plain schema for saving autoML models.
 
 12. Save the model through the following command.
 

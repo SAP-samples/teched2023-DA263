@@ -1,28 +1,7 @@
 The SAP HANA Cloud database stores data in memory using both column and row tables. Application builders can use column tables for almost every use case.
 
-<!---Conceptually, a database table is a two dimensional data structure with cells organized in rows and columns. Computer memory however is organized as a linear sequence. For storing a table in linear memory, two options can be chosen as shown below. A row store stores a sequence of records that contains the fields of one row in the table. In a column store, the entries of a column are stored in contiguous memory locations.--->
 
 ![image](./Images/DBX_Tables/image01.png)
-
-
-<!---In the SAP HANA Cloud database, tables that are organized in columns are optimized for high-performing read operations while still providing good performance for write operations. Efficient data compression is applied to save memory and speed up searches and calculations. Furthermore, some features of the SAP HANA Cloud database, such as partitioning, are available only for column tables. Column-based storage is typically suitable for big tables with bulk updates. However, update and insert performance is better on row tables. Row-based storage is typically suitable for small tables with frequent single updates.
-
-The following outlines the criteria that can used to decide if data should be stored as column tables or row tables:
-
-**Column Store:**
-- Calculations are typically executed on individual or a small number of columns.
-- The table is searched based on the values of a few columns.
-- The table has a large number of columns.
-- The table has a large number of rows and columnar operations are required (aggregate, scan, and so on).
-- High compression rates can be achieved because the majority of the columns contain only a few distinct values.
-
-**Row Store:**
-- The application needs to process only one single record at one time (many selects and /or updates of single records).
-- The application typically needs to access the complete record.
-- The columns contain mainly distinct values so compression rate would be low.
-- Neither aggregations nor fast searching are required.
-- The table has a small number of rows (for example, configuration tables).
---->
 
 ## Advantages of Column-Based Storage
 
@@ -46,8 +25,6 @@ Column tables have several advantages:
 ------
 ### Try it out!
 
-<!-- Let's look at how to create Row and Column tables in HANA.
-If you noticed from the SQL statements we ran in the *Getting Started* lesson, the syntax of creating a table in HANA is as follows: -->
 
 1. Let's explore how to create Row and Column tables in SAP HANA Cloud using Business Application studio. Tables can be created in HANA using hdbtable and hdbmigrationtable artifacts.The DA263 project already has tables defined in HDBTABLE folder.Double click on the artifact GX_CUSTOMERS.hdbtable to view its definition
 ![](./Images/BAS/GX_CUSTOMERS_TABLE.png)
@@ -59,7 +36,6 @@ If you noticed from the SQL statements we ran in the *Getting Started* lesson, t
 
 ![](./Images/DBX_Tables/GX_CUSTOMERS_PROPERTIES.png)
 
-<!-- Here you wil see more details about the table such as name, schema, size, etc.  -->
 
 Upon clicking on **Properties** for the selected table, the additional details about the table appears including name, schema, size, and other relevant information.
 
@@ -73,7 +49,7 @@ Upon clicking on **Properties** for the selected table, the additional details a
 
 To create a Row table, define the table type as ROW in the hdbtable artifact.
 
-**Note** : **Row tables are not recommended to use in production.** This exercise is for educational purpose to highlight the difference in memory consumption and performance between column and row store tables
+**Note** : **Row tables are not recommended to use in production.** This exercise is for educational purposes to highlight the difference in memory consumption and performance between column and row store tables
 
 6. Navigate to Business Application Studio.Select your project folder in the workspace and click F1 to open Command Palette or click View -> Command Palette
 
@@ -165,11 +141,6 @@ Partitioning allows operations to be parallelized by using several execution thr
 **Partition pruning** </br>
 Queries are analyzed to determine whether or not they match the given partitioning specification of a table (static partition pruning) or match the content of specific columns in aging tables (dynamic partition pruning). If a match is found, it is possible to determine the specific partitions that hold the data being queried and avoid accessing and loading into memory partitions which are not required.
 
-<!---**Improved performance of the delta merge operation** </br>
-The performance of the delta merge operation depends on the size of the main index. If data is only being modified on some partitions, fewer partitions will need to be delta merged and therefore performance will be better.
-
-**Explicit partition handling** </br>
-Applications may actively control partitions, for example, by adding partitions to store the data for an upcoming month.--->
 
 </br>
 
@@ -233,7 +204,6 @@ This will partition the *GX_CUSTOMERS* table into 3 partitions, via a *HASH* par
 ```sql
 SELECT COUNT(*) FROM GX_CUSTOMERS;
 ```
-<!-- 4. You should see that 2K records are returned as the result. Although the table is now in 3 separate partitions, you do not need to alter any queries on the table. -->
 
 5. Upon querying the table, it can be observed that around 2000 records are returned as the result. Despite the fact that the table has been partitioned into three separate partitions, there is no need to make any alterations to the queries performed on the table. The partitioning is handled transparently by SAP HANA Cloud, ensuring that the query results remain consistent and accurate without requiring any modifications to the queries themselves.
 
@@ -265,8 +235,6 @@ column table "GX_CUSTOMERS" (
 
 Refresh the metadata screen for the table to see that it is a non-partitioned table again.
 
-<!-- **Well done!** You should now have a good understanding of the management and partitioning of tables in HANA. -->
-
 
 
 </br>
@@ -283,31 +251,20 @@ The dominant part of the used memory in the SAP HANA Cloud database is the space
 
 ![](./Images/DBX_TAbles/DBX_Image_HANAUsedMemoryCol.png)
 
-<!---![](./Images/DBX_Image_HANAMemStore.png)--->
 
 The column store is the part of the SAP HANA Cloud Database that manages data organized in columns in memory. This enables high data compression rates and faster aggregations. 
 
-<!---The Row Store is optimized for high performance of concurrent read and write operations. Row store tables reside in main memory always.--->
 
 The column store is optimized for both read and write operations. This is achieved through two data structures: Main storage and Delta storage.
 
 ![](./Images/DBX_Tables/DBX_Image_MainDelta.png)
 
-<!--- ## Tables Involved
 
-Local Tables:
-
-* CUSTOMERS
-* EMPLOYEES
-* PRODUCTS
-* SALES
---->
-<!-- To show this, we will first create a copy of the **GX_EMPLOYEES** Table, with Delta Merge switched off initially. Then we will populate this table with data. -->
 
 To demonstrate the concept, create a copy of the **GX_EMPLOYEES** table with Delta Merge initially disabled. This will allow us to examine the behavior of the table without the Delta Merge feature. Subsequently, the table will be populated with data for further analysis.
 
 
-1. Open BAS and create *LOCAL_EMPLOYEES* with following content and deploy
+1. Open BAS and create *LOCAL_EMPLOYEES.hdbtable* file in */HDBTABLE* folder with following content and deploy
 
 ```sql
 column table "LOCAL_EMPLOYEES" (
@@ -331,8 +288,6 @@ column table "LOCAL_EMPLOYEES" (
 
 
 
-
-<!-- >**Note:** When you create a table in HANA, Delta Merge is automatically enabled by default - you don't have to explicitly mention how the table should handle the auto merge process upon creation. We are just specifying 'No Auto Merge' in this situation for demonstration purposes. For further details on the delta merge process, click [here](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/bd9ac728bb57101482b2ebfe243dcd7a.html). -->
 
 >**Note:** It is important to note that when creating a table in SAP HANA Cloud, the Delta Merge feature is automatically enabled by default. There is no need to explicitly specify how the table should handle the auto merge process during creation. However, in this situation, we are specifying "No Auto Merge" for demonstration purposes to showcase the behavior without Delta Merge. For further information on the delta merge process, click [here](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/bd9ac728bb57101482b2ebfe243dcd7a.html).
 
@@ -359,8 +314,7 @@ Note a list of all the table columns, and their data types:
 
 4. Select the **Runtime Information** tab.
 
-<!-- Here you will see further details about the table such as number of records, table size in memory and on disk, and other details about Partitions and Columns.
-For now we are just concerned with the section on **Memory Consumption**. -->
+
 
 In the table details section, users will find additional information about the table, including the number of records, table size in memory and on disk, as well as details about partitions and columns. Specifically, the **Memory Consumption** section provides insights relevant to our current focus.
 
@@ -424,8 +378,6 @@ SELECT * FROM "LOCAL_EMPLOYEES";
 ![](./Images/BAS/after_delta_merge.png)
 
 Note that the Execution time, Prepare time and Memory used in the query should all be quite similar to the 2nd execution above.
-
-<!-- We can draw the following conclusions from this latest execution of the statement: -->
 
 From the latest execution of the statement, the following conclusions can be drawn:
 
