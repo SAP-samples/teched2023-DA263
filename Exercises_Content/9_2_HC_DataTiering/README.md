@@ -92,3 +92,5 @@ Deploy now
 As you see the savings are with small datasets even negative. This should not irritate you here and you can for sure use this with larger datasets.
 
 **Well done!!** This completes the lesson on scaling SAP HANA Cloud at low cost to accommodate large amounts of data with less time-criticality.
+- [Exercise 3 - MULTI-MODEL--SPATIAL](Exercises_Content/9_3_HC_Spatial/6_DBX_Spatial.md)
+- [Start] (README.md)
