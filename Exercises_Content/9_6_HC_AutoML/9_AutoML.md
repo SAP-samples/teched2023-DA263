@@ -1,3 +1,5 @@
+# Automated Machine Learning (AutoML)
+
 SAP HANA Cloud is enriched with an Automated Machine Learning (AutoML) approach. AutoML can be helpful, for example, to give a data scientist a head-start into quickly finding a first machine learning model.
 
 A machine learning model is a program that can find patterns or make decisions from a previously unseen dataset. This is made possible by first 'training' the model with a large dataset.
