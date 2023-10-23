@@ -1,3 +1,4 @@
+# GRAPH Data
 
 Graphs can model different kinds of networks and linked data coming from many industries, such as logistics and transportation, utility networks, knowledge representation, and text processing.
 
