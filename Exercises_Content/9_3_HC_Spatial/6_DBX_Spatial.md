@@ -272,3 +272,7 @@ Now look at the cluster result from different views.
 # Further information
 
 - [SAP HANA Cloud, SAP HANA Database Spatial Reference](https://help.sap.com/docs/HANA_CLOUD_DATABASE/bc9e455fe75541b8a248b4c09b086cf5/e1c934157bd14021a3b43b5822b2cbe9.html)
+
+
+- Continue to - [Exercise 4 - MULTI-MODEL--DOCUMENTSTORE](../9_4_HC_DocumentStore/README.md)
+- Continue to - [Main page](../../README.md)
