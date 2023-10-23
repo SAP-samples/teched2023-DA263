@@ -260,19 +260,14 @@ Now look at the cluster result from different views.
 
 ![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_4.png)
 
-
-</br>
-
 4. Look at the largest hexagon with **200** entries by double-clicking the **SHAPE** entry. The result for the highest customer density is in an area around Frankfurt:
 
 ![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_5.png)
-
-</br>
 
 # Further information
 
 - [SAP HANA Cloud, SAP HANA Database Spatial Reference](https://help.sap.com/docs/HANA_CLOUD_DATABASE/bc9e455fe75541b8a248b4c09b086cf5/e1c934157bd14021a3b43b5822b2cbe9.html)
 
-
+**Well done!!** This completes the lesson
 - Continue to - [Exercise 4 - MULTI-MODEL--DOCUMENTSTORE](../9_4_HC_DocumentStore/README.md)
 - Continue to - [Main page](../../README.md)
