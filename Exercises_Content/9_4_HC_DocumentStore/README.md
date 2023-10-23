@@ -168,5 +168,5 @@ For further information on this topic, check out the following link:</br>
 
 **Well done!!** This completes the lesson on the SAP HANA Cloud Document Store.
 
-- Continue to - [Exercise 5 - MULTI-MODEL--GRAPH](../9_1_HC_Graph/README.md)
+- Continue to - [Exercise 5 - MULTI-MODEL--GRAPH](../9_5_HC_Graph/8_DBX_Graph.md)
 - Continue to - [Main page](../../README.md)
