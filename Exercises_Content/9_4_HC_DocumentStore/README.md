@@ -1,4 +1,4 @@
-**SAP HANA Cloud Document Store**
+#SAP HANA Cloud Document Store
 
 SAP HANA Cloud Document Store provides the ability to manage complex business data in its native structure with full flexibility and simplified integration options. 
 
@@ -161,8 +161,12 @@ FROM MYDOCSTOREVIEW
 ```
 ![](./Images/170_REVIEW_HDI.png.png)
 
-
-**Well done!!** This completes the lesson on the SAP HANA Cloud Document Store.
+**Further Reading**
 For further information on this topic, check out the following link:</br>
 
 - [SAP HANA Cloud, SAP HANA Database JSON Document Store Guide](https://help.sap.com/docs/HANA_CLOUD_DATABASE/f2d68919a1ad437fac08cc7d1584ff56/dca379e9c94940e998d9d4b5c656d1bd.html)
+
+**Well done!!** This completes the lesson on the SAP HANA Cloud Document Store.
+
+- Continue to - [Exercise 5 - MULTI-MODEL--GRAPH](../9_1_HC_Graph/README.md)
+- Continue to - [Main page](../../README.md)
