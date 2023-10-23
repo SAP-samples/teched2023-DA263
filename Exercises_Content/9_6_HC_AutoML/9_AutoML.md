@@ -7,15 +7,11 @@ During training, the machine learning algorithm is optimized to find certain pat
 
 AutoML with SAP HANA Cloud is a great starting point to see what is possible with a dataset, and if it is worth to invest more time into a use case.
 
-</br>
-
 ### Unique benefits with PAL (Predictive Analytics Library) AutoML Includes:
 
 - Improved PAL models and business impact 
 - Composite pipeline models of multiple PAL algorithms
 - Automated algorithm comparison and selection as well as parameter search and optimal selection ML predictions of higher accuracy/value
-
-</br>
 
 ### Productivity up-lift and expert experience
 
@@ -24,15 +20,11 @@ AutoML with SAP HANA Cloud is a great starting point to see what is possible wit
 
 </br>
 
-![](./Images/DBX_AutoML/automl.png)
-
-</br>  
+![](./Images/DBX_AutoML/automl.png) 
 
 For this section, a data set containing customer transactions as a table has already been loaded into the SAP HANA Cloud Database (**GX_TRANSACTIONS**). 
 
-
 The challenge is to predict whether a transaction is fraudulent or not. Such use cases are often quite challenging due to imbalanced data and thus require different techniques before implementing a machine learning model.
-
 
 ------
 ### Try it out!
@@ -114,7 +106,6 @@ The above .hdbgrants artifact grants the role *HDI_ML_GRANTOR_ROLE* to the HDI c
 
 Note: Please make a note of the above values and we will be using it in following exercises.
 
-
 ### Setting up dev space with python tools
 
 1. Let us create a new dev space with python tools enabled.  Open **[SAP Business Application Studio](https://da263-pj0569xc.ap11cf.applicationstudio.cloud.sap/index.html)** in a new window
@@ -165,13 +156,9 @@ auto_ml_hana $ pip install shapely
 
 11. The file will now appear in the Explorer pane. Double-click on the file to open it.
 
-
 12. The Notebook is now ready!
 
 ![](./Images/BAS/notebook.png)
-
-
-</br>
 
 ### Analysis
 
@@ -186,8 +173,6 @@ Get the **host**,**port**,**schema**,**user** and **password** of your HDI conta
 
 ![](./Images/BAS/image02.png)
 
-
-
 | **Input Type**    | **Values**                                                                 |
 | ----------------- | -------------------------------------------------------------------------- |
 | **Host name:**    | {placeholder|hc}                                                           |
@@ -196,50 +181,37 @@ Get the **host**,**port**,**schema**,**user** and **password** of your HDI conta
 | **Password:**     | {placeholder|password}                                                     |
 | **HANA Encrypt:** | True                                                                       |
 
-</br>
-
 3. Create a data frame through SQL or table function and get the row count.
-
 
 ![](./Images/BAS/image03.png)
 
 4. Control data and convert the following variables accordingly.
 
-
 ![](./Images/BAS/image04.png)
 
 ![](./Images/BAS/image05.png)
-
 
 5. Control the conversion and take a look at a short description of the data. 
 
 ![](./Images/BAS/image06.png)
 
-
 >**Note:** The target variable is called **Fraud**. In addition, there are eight predictors capturing different information from a transaction.
 
 ![](./Images/BAS/image07.png)
 
-
-
 > **Note:** Data types have been altered accordingly
-
 
 6. Split the data into a training and testing set.
 
-
 ![](./Images/BAS/image08.png)
-
 
 7. Control the size of the training and testing datasets.
 
 ![](./Images/BAS/image09.png)
 
-
 8. Import the following dependencies for the Automatic Classification.
 
 ![](./Images/BAS/image10.png)
-
 
 9. Manage the workload in SAP HANA Cloud tenant by creating workload classes. Please execute the following SQL script to set the workload class, which will be used in the Automatic Classification.
 
@@ -319,32 +291,12 @@ Setting random_seed =1234 helps to get reproducable **AutoML** runs.
 
 ![](./Images/BAS/image22.png)
 
-</br>
-
-**Congratulations!!** This concludes the lesson on Automated Machine Learning in SAP HANA Cloud. 
-
+**Further Reading**
 For further information on AutoML with HANA Cloud, check out the following links:
 
 [SAP HANA Cloud PAL AutoML Documentation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-predictive-analysis-library/automl-d1a54bc3a4664937b77e85a865754b17?locale=en-US)
-</br>
-
 [Python ML client for SAP HANA AutoML Reference Document](https://help.sap.com/doc/cd94b08fe2e041c2ba778374572ddba9/2023_2_QRC/en-US/pal/algorithms.html#auto-ml)
-</br>
-
 [Github Repository with Example Code](https://github.com/SAP-samples/hana-ml-samples/tree/main/Python-API/usecase-examples/sapcommunity-automl-examples)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Congratulations!!** This concludes the lesson on Automated Machine Learning in SAP HANA Cloud and finishes todays workshop
+- Continue to - [Main page](../../README.md)
