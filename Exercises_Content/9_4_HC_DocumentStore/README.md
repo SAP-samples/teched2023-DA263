@@ -1,4 +1,4 @@
-#SAP HANA Cloud Document Store
+# SAP HANA Cloud Document Store
 
 SAP HANA Cloud Document Store provides the ability to manage complex business data in its native structure with full flexibility and simplified integration options. 
 
