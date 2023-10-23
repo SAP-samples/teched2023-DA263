@@ -485,3 +485,5 @@ WHERE EMPLOYEE_SALARY > 50000;
 
 **Well done!** By now, you have acquired a solid understanding of in memory column tables and the advantages they offer. You now have experience creating these types of tables, exploring table properties, and effectively creating partitions for improved performance and data management.
 
+- Continue to - [Exercise 2 - DATA-TIERING](../9_2_HC_DataTiering/README.md)
+- Continue to - [Main page](../../README.md)
