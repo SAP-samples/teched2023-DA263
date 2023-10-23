@@ -1,4 +1,4 @@
-<!---In this section, a dataset containing location data will be utilized to demonstrate the spatial capabilities of SAP HANA Cloud. During the *Getting Started* lesson, a world map with countries as a table was loaded into the SAP HANA Cloud Database. This data resides in the **{placeholder|userid}** schema, in table **GX_WORLD_COUNTRIES**.--->
+# Spatial Data
 
 With SAP HANA Cloud’s spatial engine, application builders can add spatial intelligence to business data to gain deeper insights, identify new opportunities and discover root causes of complex issues.</br>
 
