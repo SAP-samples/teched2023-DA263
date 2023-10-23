@@ -323,5 +323,5 @@ SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE GX_DELIVERABLE QUERY
 
 **Well done!** This completes the lesson on the SAP HANA Cloud Graph Engine. For further information on this topic, check out the following link.
 
-- Continue to - [Exercise 6 - AUTOML](Exercises_Content/9_6_HC_AutoML/9_AutoML.md)
+- Continue to - [Exercise 6 - AUTOML](../9_6_HC_AutoML/9_AutoML.md)
 - Continue to - [Main page](../../README.md)
