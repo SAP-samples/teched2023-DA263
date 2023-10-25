@@ -1,4 +1,4 @@
-**SAP HANA Cloud Document Store**
+# SAP HANA Cloud Document Store
 
 SAP HANA Cloud Document Store provides the ability to manage complex business data in its native structure with full flexibility and simplified integration options. 
 
@@ -114,23 +114,17 @@ ORDER BY
 12. The JSON data in the document store can easily combine with business data.
    
 ```sql
-WITH myView AS 
-(SELECT 
-       PRODUCT_ID                         as PID,
-       AVG(TO_BIGINT(REVIEW_RATING))      as AVGRATING 
-FROM GX_REVIEW
-GROUP BY
-       PRODUCT_ID )
 
 SELECT 
        PID,
-       PRODUCT_NAME,
+       P.PRODUCT_NAME,
        AVGRATING 
-FROM myView 
-       INNER JOIN "GX_PRODUCTS" ON myView.PID = PRODUCT_ID;
+FROM DOCSTOREVIEW
+       INNER JOIN "GX_PRODUCTS" as P ON DOCSTOREVIEW.PID = PRODUCT_ID;
+
 
 ```
-
+There is a view called "DOCSTOREVIEW" that encapsulated an aggregation
 ![](./Images/160_REVIEW_view.png)
 
 
@@ -161,8 +155,12 @@ FROM MYDOCSTOREVIEW
 ```
 ![](./Images/170_REVIEW_HDI.png.png)
 
-
-**Well done!!** This completes the lesson on the SAP HANA Cloud Document Store.
+**Further Reading**
 For further information on this topic, check out the following link:</br>
 
 - [SAP HANA Cloud, SAP HANA Database JSON Document Store Guide](https://help.sap.com/docs/HANA_CLOUD_DATABASE/f2d68919a1ad437fac08cc7d1584ff56/dca379e9c94940e998d9d4b5c656d1bd.html)
+
+**Well done!!** This completes the lesson on the SAP HANA Cloud Document Store.
+
+- Continue to - [Exercise 5 - MULTI-MODEL--GRAPH](../9_5_HC_Graph/8_DBX_Graph.md)
+- Continue to - [Main page](../../README.md)

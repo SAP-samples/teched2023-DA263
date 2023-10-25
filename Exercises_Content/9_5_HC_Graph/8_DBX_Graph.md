@@ -1,3 +1,4 @@
+# GRAPH Data
 
 Graphs can model different kinds of networks and linked data coming from many industries, such as logistics and transportation, utility networks, knowledge representation, and text processing.
 
@@ -317,15 +318,11 @@ SELECT * FROM OPENCYPHER_TABLE( GRAPH WORKSPACE GX_DELIVERABLE QUERY
 
 ![](./Images/DBX_Graph/image024_new.png)
 
-
-**Well done!** This completes the lesson on the SAP HANA Cloud Graph Engine. For further information on this topic, check out the following link.
-</br>
+**Further Reading**
 
 - [SAP HANA Cloud, SAP HANA Database Graph](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-graph-reference/sap-hana-cloud-sap-hana-database-graph-reference?locale=en-US)
 
+**Well done!** This completes the lesson on the SAP HANA Cloud Graph Engine. For further information on this topic, check out the following link.
 
-
-
-
-
-
+- Continue to - [Exercise 6 - AUTOML](../9_6_HC_AutoML/9_AutoML.md)
+- Continue to - [Main page](../../README.md)

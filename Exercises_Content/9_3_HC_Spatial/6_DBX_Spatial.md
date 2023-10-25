@@ -1,4 +1,4 @@
-<!---In this section, a dataset containing location data will be utilized to demonstrate the spatial capabilities of SAP HANA Cloud. During the *Getting Started* lesson, a world map with countries as a table was loaded into the SAP HANA Cloud Database. This data resides in the **{placeholder|userid}** schema, in table **GX_WORLD_COUNTRIES**.--->
+# Spatial Data
 
 With SAP HANA Cloud’s spatial engine, application builders can add spatial intelligence to business data to gain deeper insights, identify new opportunities and discover root causes of complex issues.</br>
 
@@ -260,15 +260,14 @@ Now look at the cluster result from different views.
 
 ![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_4.png)
 
-
-</br>
-
 4. Look at the largest hexagon with **200** entries by double-clicking the **SHAPE** entry. The result for the highest customer density is in an area around Frankfurt:
 
 ![](./Images/DBX_Spatial/VW_SPATIAL_CLUSTERING_5.png)
 
-</br>
-
 # Further information
 
 - [SAP HANA Cloud, SAP HANA Database Spatial Reference](https://help.sap.com/docs/HANA_CLOUD_DATABASE/bc9e455fe75541b8a248b4c09b086cf5/e1c934157bd14021a3b43b5822b2cbe9.html)
+
+**Well done!!** This completes the lesson
+- Continue to - [Exercise 4 - MULTI-MODEL--DOCUMENTSTORE](../9_4_HC_DocumentStore/README.md)
+- Continue to - [Main page](../../README.md)

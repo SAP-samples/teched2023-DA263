@@ -42,6 +42,6 @@ You will loose no content. The whole content will be saved and restored.
 
 Now that you have completed the set up
 
-- Continue to - [Exercise 1 Getting Started](/Exercises_Content/9_0_HC_Intro/1_BAS_Getting_Started.md)
-- Continue to - [Exercise 2 Introduction](/Exercises_Content/9_0_HC_Intro/2_BAS_Introduction.md)
+- Continue to - [Exercise 0 Getting Started](/Exercises_Content/9_0_HC_Intro/1_BAS_Getting_Started.md)
+- Continue to - [Exercise 0 Introduction](/Exercises_Content/9_0_HC_Intro/2_BAS_Introduction.md)
 - Continue to - [Main page](../../README.md)

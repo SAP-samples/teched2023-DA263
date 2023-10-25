@@ -1,4 +1,4 @@
-# DATA Partitioning
+# DATA Tiering
 
 The speed at which a business accesses its data varies based on many different conditions. SAP HANA Cloud provides the capability to use additional storage tiers other than memory to store data based on access speed and data density needs. SAP HANA Native Store Extension (NSE) is the disk storage option for use with data less frequently accessed than in memory. Memory is still utilized but only for the data that is being used. The SAP HANA data lake also offers high density storage at capacities far greater than possible using the other storage tiers.
 
@@ -77,10 +77,10 @@ Rename both files before deploying again
 
 ![BAS rename](./Images/120_employees_rename.png)
 
-- /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.txt
-- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.txt -> GX_EMPLOYEES.hdbmigrationtable
+- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable -> GX_EMPLOYEES.hdbmigrationtable.V0.txt
+- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.V1.txt -> GX_EMPLOYEES.hdbmigrationtable
 
-This will change the table to be partitioned. Also you learned how to convert a *.hdbtable to a*.hdbmigrationtable artifact.
+This will change the table to be partitioned. 
 Deploy now
 
 ![Deploy](./Images/130_project_deploy.png)
@@ -92,3 +92,5 @@ Deploy now
 As you see the savings are with small datasets even negative. This should not irritate you here and you can for sure use this with larger datasets.
 
 **Well done!!** This completes the lesson on scaling SAP HANA Cloud at low cost to accommodate large amounts of data with less time-criticality.
+- Continue to - [Exercise 3 - MULTI-MODEL--SPATIAL](../9_3_HC_Spatial/6_DBX_Spatial.md)
+- Continue to - [Main page](../../README.md)
