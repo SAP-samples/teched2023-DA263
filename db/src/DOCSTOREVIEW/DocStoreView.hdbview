@@ -1,0 +1,8 @@
+view DOCSTOREVIEW AS  
+(SELECT 
+       PRODUCT_ID         as PID,
+	   CUSTOMER_ID,		  as CID,
+       REVIEW_RATING      as RATING 
+FROM GX_REVIEW
+)
+; 
