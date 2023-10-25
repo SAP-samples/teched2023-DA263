@@ -83,3 +83,6 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 </br>
 
 **Congratulations!** The data and tools for the exercises are now ready for use. Please keep the BAS and the DB Explorer window open as you continue through the exercises.
+
+- Continue to - [Exercise 1 - HANA In-Memory Tables ](../9_1_HC_HanaTables/3_DBX_HANATables.md)
+- Continue to - [Main page](../../README.md)
