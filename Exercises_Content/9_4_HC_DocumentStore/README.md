@@ -124,7 +124,7 @@ FROM DOCSTOREVIEW
 
 
 ```
-
+There is a view called "DOCSTOREVIEW" that encapsulated an aggregation
 ![](./Images/160_REVIEW_view.png)
 
 
