@@ -16,27 +16,25 @@ After completing these steps you will have configured a SAP Business Application
 
 ![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/Credentials.png)
 
-<BR> Now you reach the SAP Business Application Studio which may or may not contain already so called DEVELOPMENT SPACES
+Now you reach the SAP Business Application Studio which may or may not contain already so called DEVELOPMENT SPACES
 
-<BR>
-
-<BR> Select "Create Dev Space"
-<BR> Choose a NAME of your choice (without spaces)
-<BR> Select SAP HANA NATIVE APPLICATION
+Select "Create Dev Space"
+Choose a NAME of your choice (without spaces)
+Select SAP HANA NATIVE APPLICATION
 Defining your Workspace for SAP Business Application Studio ![Define BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_0_BAS_START.png)
 
-<BR> ![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/MyDevSpace.png)
+![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/MyDevSpace.png)
 
-<BR> Starting your Workspace for SAP Business Application Studio ![Start BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_1_BAS_DEFINE.png)
+Starting your Workspace for SAP Business Application Studio ![Start BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_1_BAS_DEFINE.png)
 
-<BR> Spaces have states as
+Spaces have states as
 
 - STOPPED
 - STARTING
 - RUNNING
 
-After a certain period of non usage a space will close and after that it will automatical stopp
-You will loose no content. The whole content will be saved and restored.
+After a certain period of non-usage, a space will close and then it will automatically stop. 
+You will not lose any content as this will be saved and then restored when the space is restarted.
 
 ## Summary
 

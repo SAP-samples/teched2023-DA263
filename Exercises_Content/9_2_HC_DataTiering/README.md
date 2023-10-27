@@ -72,7 +72,7 @@ column table "GX_EMPLOYEES" (
 
 ```
 
-To run this change we have prepared a GX_EMPLOYEES.hdbmigrationtable.
+To run this change we have prepared a second version of GX_EMPLOYEES.hdbtable.
 Rename both files before deploying again
 
 ![BAS rename](./Images/120_employees_rename.png)
@@ -80,7 +80,7 @@ Rename both files before deploying again
 - /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.V0.txt
 - /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable.V1.txt -> GX_EMPLOYEES.hdbtable
 
-This will change the table to be partitioned. 
+This will change the table to be partitioned.
 Deploy now
 
 ![Deploy](./Images/130_project_deploy.png)
