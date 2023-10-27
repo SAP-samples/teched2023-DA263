@@ -1,0 +1,8 @@
+view DOCSTOREVIEW as  
+(SELECT 
+       PRODUCT_ID                         as PID,
+       AVG(TO_BIGINT(REVIEW_RATING))      as AVGRATING 
+FROM GX_REVIEW 
+GROUP BY
+       PRODUCT_ID )
+; 
