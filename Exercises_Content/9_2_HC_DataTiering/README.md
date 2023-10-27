@@ -72,7 +72,7 @@ column table "GX_EMPLOYEES" (
 
 ```
 
-To run this change we have prepared a GX_EMPLOYEES.hdbmigrationtable.
+To run this change we have prepared a second version of GX_EMPLOYEES.hdbtable.
 Rename both files before deploying again
 
 ![BAS rename](./Images/120_employees_rename.png)
