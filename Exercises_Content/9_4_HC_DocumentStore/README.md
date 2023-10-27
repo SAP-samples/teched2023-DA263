@@ -137,13 +137,13 @@ SELECT
 FROM DOCSTOREVIEW_BASE
 INNER JOIN GX_PRODUCTS AS P	ON DOCSTOREVIEW_BASE.PID = P.PRODUCT_ID;
 ```
-![](./Images/180_REVIEW_CUST.png)
+
 
 14. Now add in the customer details and review text:
 
 
 ```sql
-Sselect 
+Select 
 	distinct PR.PID,
 	PR.CUSTOMER_FIRSTNAME,
 	GP.PRODUCT_NAME, 
@@ -158,7 +158,8 @@ from (
 				where PR.PID = GP.PRODUCT_ID
 ;
 ```
-![](./Images/170_REVIEW_HDI.png.png)
+
+![All together](./Images/180_REVIEW_CUST.png)
 
 **Further Reading**
 For further information on this topic, check out the following link:</br>
