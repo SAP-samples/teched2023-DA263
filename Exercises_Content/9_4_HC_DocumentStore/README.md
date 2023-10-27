@@ -138,9 +138,9 @@ FROM DOCSTOREVIEW_BASE
 INNER JOIN GX_PRODUCTS AS P	ON DOCSTOREVIEW_BASE.PID = P.PRODUCT_ID;
 ```
 
+![Adding cust_ID](./Images/175_REVIEW_CUST_ID.png)
 
 14. Now add in the customer details and review text:
-
 
 ```sql
 Select 
