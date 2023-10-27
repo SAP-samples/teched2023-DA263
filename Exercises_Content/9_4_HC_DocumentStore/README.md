@@ -114,15 +114,20 @@ ORDER BY
 12. The JSON data in the document store can easily combine with business data.
    
 ```sql
+WITH myView AS 
+(SELECT 
+       PRODUCT_ID                         as PID,
+       AVG(TO_BIGINT(REVIEW_RATING))      as AVGRATING 
+FROM GX_REVIEW
+GROUP BY
+       PRODUCT_ID )
 
 SELECT 
        PID,
-       P.PRODUCT_NAME,
+       PRODUCT_NAME,
        AVGRATING 
-FROM DOCSTOREVIEW
-       INNER JOIN "GX_PRODUCTS" as P ON DOCSTOREVIEW.PID = PRODUCT_ID;
-
-
+FROM myView 
+       INNER JOIN "GX_PRODUCTS" ON myView.PID = PRODUCT_ID;
 ```
 There is a view called "DOCSTOREVIEW" that encapsulated an aggregation
 ![](./Images/160_REVIEW_view.png)
@@ -130,7 +135,7 @@ There is a view called "DOCSTOREVIEW" that encapsulated an aggregation
 
 13. Finally, join Reviews with Customer and Product data to add more context:
 
-You will find the used view **myDocStoreView** in the HDI project
+You will find the used view **DocStoreView** in the HDI project
 ```sql
 SELECT 
 	PID, 
@@ -138,7 +143,7 @@ SELECT
 	CUSTOMER_ID, 
 	REVIEW_RATING 
 FROM myView 
-	INNER JOIN GX_PRODUCTS AS P ON myDocStoreView.PID = P.PRODUCT_ID;
+	INNER JOIN GX_PRODUCTS AS P ON DocStoreView.PID = P.PRODUCT_ID;
 ```
 
 14. Now add in the customer details and review text:
