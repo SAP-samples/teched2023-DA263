@@ -114,22 +114,14 @@ ORDER BY
 12. The JSON data in the document store can easily combine with business data.
    
 ```sql
-WITH myView AS 
-(SELECT 
-       PRODUCT_ID                         as PID,
-       AVG(TO_BIGINT(REVIEW_RATING))      as AVGRATING 
-FROM GX_REVIEW
-GROUP BY
-       PRODUCT_ID )
-
 SELECT 
        PID,
        PRODUCT_NAME,
        AVGRATING 
-FROM myView 
-       INNER JOIN "GX_PRODUCTS" ON myView.PID = PRODUCT_ID;
+FROM DOCSTOREVIEW 
+       INNER JOIN "GX_PRODUCTS" ON DOCSTOREVIEW.PID = PRODUCT_ID;
 ```
-There is a view called "DOCSTOREVIEW" that encapsulated an aggregation
+There is a view called "DOCSTOREVIEW" that encapsulated the access to the Collection
 ![](./Images/160_REVIEW_view.png)
 
 
