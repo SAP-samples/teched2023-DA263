@@ -127,28 +127,36 @@ There is a view called "DOCSTOREVIEW" that encapsulated the access to the Collec
 
 13. Finally, join Reviews with Customer and Product data to add more context:
 
-You will find the used view **DocStoreView** in the HDI project
+You will find the view **DocStoreView_Base** in the HDI project
 ```sql
 SELECT 
-	PID, 
+	PID,
 	P.PRODUCT_NAME, 
-	CUSTOMER_ID, 
-	REVIEW_RATING 
-FROM myView 
-	INNER JOIN GX_PRODUCTS AS P ON DocStoreView.PID = P.PRODUCT_ID;
+	CUSTOMER_ID,
+	RATING 
+FROM DOCSTOREVIEW_BASE
+INNER JOIN GX_PRODUCTS AS P	ON DOCSTOREVIEW_BASE.PID = P.PRODUCT_ID;
 ```
+![](./Images/180_REVIEW_CUST.png)
 
 14. Now add in the customer details and review text:
-The view **"MYDOCSTOREVIEW"** can found in your HDI project
+
 
 ```sql
-SELECT 
-	PID, 
-	P.PRODUCT_NAME, 
-	CUSTOMER_ID, 
-	REVIEW_RATING 
-FROM MYDOCSTOREVIEW
-	INNER JOIN GX_PRODUCTS AS P ON MYDOCSTOREVIEW.PID = P.PRODUCT_ID;
+Sselect 
+	distinct PR.PID,
+	PR.CUSTOMER_FIRSTNAME,
+	GP.PRODUCT_NAME, 
+	PR.RATING, 
+	PR.REVIEW_TEXT 
+from (
+	select * 
+	from	DOCSTOREVIEW_BASE RE, 
+			GX_CUSTOMERS GC
+				where RE.CUSTOMER_ID = GC.CUSTOMER_ID) PR, 
+			GX_PRODUCTS GP
+				where PR.PID = GP.PRODUCT_ID
+;
 ```
 ![](./Images/170_REVIEW_HDI.png.png)
 
