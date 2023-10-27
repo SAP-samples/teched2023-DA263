@@ -77,8 +77,8 @@ Rename both files before deploying again
 
 ![BAS rename](./Images/120_employees_rename.png)
 
-- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable -> GX_EMPLOYEES.hdbmigrationtable.V0.txt
-- /db/src/HDBMIGRATIONTABLE/GX_EMPLOYEES.hdbmigrationtable.V1.txt -> GX_EMPLOYEES.hdbmigrationtable
+- /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable -> GX_EMPLOYEES.hdbtable.V0.txt
+- /db/src/HDBTABLE/GX_EMPLOYEES.hdbtable.V1.txt -> GX_EMPLOYEES.hdbtable
 
 This will change the table to be partitioned. 
 Deploy now
