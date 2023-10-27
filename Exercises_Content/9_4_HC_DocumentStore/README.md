@@ -46,15 +46,15 @@ SELECT * FROM GX_REVIEW
 
 ```sql
 SELECT 
-	REVIEW_ID,
-	CUSTOMER_ID,
-	PRODUCT_ID,
-	REVIEW_RATING,
-	REVIEW_TEXT 
+    REVIEW_ID,
+    CUSTOMER_ID,
+    PRODUCT_ID,
+    REVIEW_RATING,
+    REVIEW_TEXT 
 FROM 
-	GX_REVIEW 
+    GX_REVIEW 
 WHERE 
-	REVIEW_ID='R_00012';
+    REVIEW_ID='R_00012';
 ```
 
 ![](./Images/125_REVIEW_select.png)
@@ -86,10 +86,11 @@ SELECT * FROM GX_REVIEW WHERE REVIEW_ID='R_100123';
 
 ```sql
 UPDATE GX_REVIEW 
-	SET REVIEW_TEXT='Hello again' 
-		WHERE REVIEW_ID='R_100123';
+    SET REVIEW_TEXT='Hello again' 
+        WHERE REVIEW_ID='R_100123';
+
 SELECT * FROM GX_REVIEW 
-	WHERE REVIEW_ID='R_100123';
+    WHERE REVIEW_ID='R_100123';
 ```
 
 ![update](./Images/140_REVIEW_update.png)
@@ -98,15 +99,15 @@ SELECT * FROM GX_REVIEW
 
 ```sql
 SELECT 
-	PRODUCT_ID,
-	AVG(TO_BIGINT(REVIEW_RATING)),
-	Count(PRODUCT_ID)
+    PRODUCT_ID,
+    AVG(TO_BIGINT(REVIEW_RATING)),
+    Count(PRODUCT_ID)
 FROM 
-	GX_REVIEW 
+    GX_REVIEW 
 GROUP BY 
-	PRODUCT_ID 
+    PRODUCT_ID 
 ORDER BY 
-	PRODUCT_ID ASC;
+    PRODUCT_ID ASC;
 ```
 
 ![Aggregate](./Images/150_REVIEW_aggregate.png)
@@ -130,10 +131,10 @@ There is a view called "DOCSTOREVIEW" that encapsulated the access to the Collec
 You will find the view **DocStoreView_Base** in the HDI project
 ```sql
 SELECT 
-	PID,
-	P.PRODUCT_NAME, 
-	CUSTOMER_ID,
-	RATING 
+    PID,
+    P.PRODUCT_NAME, 
+    CUSTOMER_ID,
+    RATING 
 FROM DOCSTOREVIEW_BASE
 INNER JOIN GX_PRODUCTS AS P	ON DOCSTOREVIEW_BASE.PID = P.PRODUCT_ID;
 ```
@@ -144,18 +145,18 @@ INNER JOIN GX_PRODUCTS AS P	ON DOCSTOREVIEW_BASE.PID = P.PRODUCT_ID;
 
 ```sql
 Select 
-	distinct PR.PID,
-	PR.CUSTOMER_FIRSTNAME,
-	GP.PRODUCT_NAME, 
-	PR.RATING, 
-	PR.REVIEW_TEXT 
+    distinct PR.PID,
+    PR.CUSTOMER_FIRSTNAME,
+    GP.PRODUCT_NAME, 
+    PR.RATING, 
+    PR.REVIEW_TEXT 
 from (
-	select * 
-	from	DOCSTOREVIEW_BASE RE, 
-			GX_CUSTOMERS GC
-				where RE.CUSTOMER_ID = GC.CUSTOMER_ID) PR, 
-			GX_PRODUCTS GP
-				where PR.PID = GP.PRODUCT_ID
+   select * 
+       from    DOCSTOREVIEW_BASE RE, 
+               GX_CUSTOMERS GC
+                  where RE.CUSTOMER_ID = GC.CUSTOMER_ID) PR, 
+               GX_PRODUCTS GP
+                  where PR.PID = GP.PRODUCT_ID
 ;
 ```
 
