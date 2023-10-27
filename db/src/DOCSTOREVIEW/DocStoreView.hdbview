@@ -1,9 +1,12 @@
 view DOCSTOREVIEW as  
 (SELECT 
-       PRODUCT_ID                    as PID,
-       AVG(TO_BIGINT(REVIEW_RATING)) as AVGRATING 
+       PID,
+       AVG(RATING)     as AVGRATING,
+       COUNT(RATING)   as COUNTRATING,
+       MIN(RATING)     as MINRATING,
+       MAX(RATING)     as MAXRATING
 FROM 
-       "GX_REVIEW" 
+       DOCSTOREVIEW_BASE 
 GROUP BY 
-       PRODUCT_ID )
+       PID )
 ; 
