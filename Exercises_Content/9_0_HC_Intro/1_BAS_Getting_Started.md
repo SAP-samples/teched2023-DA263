@@ -1,4 +1,4 @@
-# The SAP HANA Cloud guided experience is an introductory tutorial experience for all users. The following modules can be completed in sequence or individually
+# DA263 Introduction
 
 - In-Memory Column Tables
 - Data Tiering
@@ -7,25 +7,7 @@
 - Multi-Model - Graph
 - Multi-Model - AutoML Introduction
 
-<!---**Important!** For all hands-on topics, please refer to the registration email received for details on accounts, passwords, and the date account expires. -->
-
-</br>
-
- **Please Note:**
-
-- For all hands-on topics, refer to the registration email for details of accounts, passwords, and the account expiration date.
-
-- This exercise is for learning, non-productive use only. All data and objects associated with your account are not available after the account expires.
-
-- After completing the *Getting Started* module, the other modules can be explored in any sequence.
-
-<!--- **Note** the hands-on in this lesson is compulsory in order to explore any of the SAP HANA Cloud features in this workshop. All features are independent and can be explored in any sequence.--->
-
-</br>
-
 ## Configure the Environment
-
-<!---Before starting the lessons, the working environment must first be set up and configured. Get started by logging in to SAP Business Application Studio, then clone the project that will be used during the rest of the guided experience.--->
 
 For the workshop we are using so called HANA Deployment Infrastructure Container also known as HDI-Containers. This will allow all participants to work in the same isolated environment (HDI container) without interfering with other participants.
 Each of the modules within this guided experience use the same set of tables. These tables contain some generic transactional sales data including details of customers, products, employees as well as review and location data.
