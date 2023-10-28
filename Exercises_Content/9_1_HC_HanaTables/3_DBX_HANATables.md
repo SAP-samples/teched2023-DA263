@@ -61,6 +61,8 @@ To create a Row table, define the table type as ROW in the hdbtable artifact.
 
 8. In the **Create SAP HANA Database Artifact** interface, add */HDBTABLE* to the path as we want to create hdbtable artifacts in HDBTABLE folder.Select *Table(hdbtable)* as the **artifact type** and type *GX_CUSTOMERS_ROW* as **artifact name**
 
+Note: Please make sure the path specified to create artifact is in the below format **/home/user/projects/teched2023-DA263/db/src/HDBTABLE/**.Replace or adapt *teched2023-DA263*  with your project folder/(s) name if you imported the project with a different name or structure.
+
 ![](./Images/BAS/GX_CUSTOMERS_ROW.png)
 
 9. Click on **Create**

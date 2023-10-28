@@ -141,18 +141,20 @@ $ cd auto_ml_hana/
 8. In the terminal , download pip, install it, add its location to PATH, and then proceed to install the hana-ml and hdbcli python packages which will be imported later in the notebook.
 
 ```bash
-auto_ml_hana $ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py && python3 get-pip.py &&  echo "export PATH=/home/user/.local/bin:$PATH" >> .bashrc && source ~/.bashrc
+$ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py && python3 get-pip.py &&  echo "export PATH=/home/user/.local/bin:$PATH" >> .bashrc && source ~/.bashrc
 ```
 ```bash
-auto_ml_hana $ pip install hdbcli hana-ml 
+$ pip install hdbcli hana-ml 
 ```
 ```bash
-auto_ml_hana $ pip install shapely
+$ pip install shapely
 ```
 
 9. After installations are done, download the jupyter notebook from this location [FraudDetection_AUtoML.ipynb](Files/FraudDetection_AutoML.ipynb.zip) and extract the file.
 
-10. Right Click on Explorer pane and select **Upload**. Browse to the location where the file has been saved and select it then click **Open**.
+10. Drag and drop the notebook file on to the Explorer pane or Right Click on Explorer pane and select **Upload**. Browse to the location where the file has been saved and select it then click **Open**.
+
+![](./Images/BAS/Upload.png)
 
 11. The file will now appear in the Explorer pane. Double-click on the file to open it.
 
