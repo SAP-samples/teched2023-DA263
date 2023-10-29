@@ -45,6 +45,18 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 ![Arrange the panel](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_5_PROJECT.gif)
 
 6. Connect to Cloud Foundry (CF login)
+The SAP CF area you want to connect to is:
+
+``` URL
+https://api.cf.ap11.hana.ondemand.com
+```
+
+The identiy provider is called **tdct3ched1-platform**
+´´´
+tdct3ched1-platform
+``````
+
+![CF SSO](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_6_0_CF_IDENTIY_PROVIDER.png)
 ![CF login](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_6_CF_LOGIN.gif)
 
 7. Create your HDI container
