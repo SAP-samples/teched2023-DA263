@@ -47,11 +47,12 @@ The SAP HANA database explorer is a web-based tool for browsing and working with
 6. Connect to Cloud Foundry (CF login)
 The SAP CF area you want to connect to is:
 
-``` URL
+``` url
 https://api.cf.ap11.hana.ondemand.com
 ```
 
 The identiy provider is called **tdct3ched1-platform**
+
 ``` Code
 tdct3ched1-platform
 ```

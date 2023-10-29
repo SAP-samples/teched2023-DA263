@@ -32,9 +32,10 @@ This example uses the **GX_EMPLOYEES** columnar table containing 100,000 records
 
 Advice: If you do not see the same results as in the instruction screenshots consider to execute a delta merge:
 
-´´´ SQL
+```sql
 merge delta of GX_EMPLOYEES FORCE REBUILD
 ```
+
 ***open GX_EMPLOYEES***
 
 2. Click on the table to open the meta data screen.
