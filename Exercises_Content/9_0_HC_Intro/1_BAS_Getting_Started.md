@@ -52,17 +52,18 @@ https://api.cf.ap11.hana.ondemand.com
 ```
 
 The identiy provider is called **tdct3ched1-platform**
-´´´
+``` Code
 tdct3ched1-platform
-``````
+```
 
 ![CF SSO](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_6_0_CF_IDENTIY_PROVIDER.png)
 ![CF login](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_6_CF_LOGIN.gif)
 
-7. Create your HDI container
+7. Create and bind your HDI container
+You might see an error the first time, just redo the binding. (This is timing issue to be fixed)
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_7_HDI_CREATE.gif)
 
-8. Connect your HDI container
+8. Connect your HDI container with database explorer
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_8_OPEN_DBX.png)
 
 9. Connect to your (empty) HANA Database Explorer
@@ -73,8 +74,6 @@ tdct3ched1-platform
 
 11. Use your DBX to view the tables and data
 ![HDI](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_91_DBX_TABLES.png)
-
-</br>
 
 **Congratulations!** The data and tools for the exercises are now ready for use. Please keep the BAS and the DB Explorer window open as you continue through the exercises.
 
