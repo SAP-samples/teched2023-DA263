@@ -12,7 +12,7 @@ After completing these steps you will have configured a SAP Business Application
 
 ### USER:       <DA263-XXX@education.cloud.sap>    -> XXX is depending on our seat: 001 .. 045
 
-### PASSWORD:   Acce$$teched23
+### PASSWORD:   <will be provided during session>
 
 ![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/Credentials.png)
 
