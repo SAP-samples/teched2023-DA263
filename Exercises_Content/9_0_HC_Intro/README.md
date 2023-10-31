@@ -12,7 +12,7 @@ After completing these steps you will have configured a SAP Business Application
 
 ### USER:       <DA263-XXX@education.cloud.sap>    -> XXX is depending on our seat: 001 .. 045
 
-### PASSWORD:   <will be provided during session>
+### PASSWORD:   --will be provided during session--
 
 ![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/Credentials.png)
 
@@ -21,11 +21,11 @@ Now you reach the SAP Business Application Studio which may or may not contain a
 Select "Create Dev Space"
 Choose a NAME of your choice (without spaces)
 Select SAP HANA NATIVE APPLICATION
-Defining your Workspace for SAP Business Application Studio ![Define BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_0_BAS_START.png)
+Defining your Workspace for SAP Business Application Studio ![Define BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_1_BAS_START.png)
 
 ![](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/MyDevSpace.png)
 
-Starting your Workspace for SAP Business Application Studio ![Start BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_1_BAS_DEFINE.png)
+Starting your Workspace for SAP Business Application Studio ![Start BAS](/Exercises_Content/9_0_HC_Intro/IMAGES_DA263/GETTING_STARTED/BAS_1_1_0_BAS_DEFINE.png)
 
 Spaces have states as
 
