@@ -96,7 +96,7 @@ ROW TABLE "GX_CUSTOMERS_ROW" ("CUSTOMER_ID"  NVARCHAR(50)  NOT NULL,
 
 ![](./Images/BAS/DeployRowTable.png)
 
-12. The newly created table can now be seen in DB Explorer. Open *SQL Console* and execute the following SQL to insert data
+12. Open **Database Explorer**.The newly created table can now be seen Tables section in Database Explorer. CLick on *Open SQL Console* button as shown below and execute the following SQL to insert data
 
 ![](./Images/BAS/OpenSQLConsole.png)
 
@@ -113,7 +113,7 @@ INSERT INTO "GX_CUSTOMERS_ROW" SELECT * FROM "GX_CUSTOMERS"
 
 ![](./Images/BAS/RowRuntime2.png)
 
-Column tables are more efficient and support faster query processing than row tables. For further information on data storage in SAP HANA Cloud, click [here](https://help.sap.com/docs/HANA_SERVICE_CF/6a504812672d48ba865f4f4b268a881e/bd2e9b88bb571014b5b7a628fca2a132.html).
+Column tables are more efficient and support faster query processing than row tables. For further information on data storage in SAP HANA Cloud, click [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/columnar-and-row-based-data-storage).
 
 ------
 ## Table Partitioning
@@ -165,7 +165,7 @@ Now let's partition the table.There are two ways to partition an existing table 
 
    b. Replace the *.hdbtable* artifact with a *.hdbmigrationtable* artifact.In contrast to the table plug-in (.hdbtable), the migration-table plug-in (.hdbmigrationtable) uses explicit versioning and migration tasks, which means that the modifications of the database table are explicitly specified in the design-time file and carried out on the database table exactly as specified, without incurring the cost of an internal table-copy operation.This behavior makes the .hdbmigrationtable plug-in especially useful for tables that contain a lot of data.
 
-For this exercise, we will modify the existing *.hdbtable* artifact. Migration table will be covered in the next exercise.
+For this exercise, we will modify the existing *.hdbtable* artifact.
 
 1. Go to BAS and open GX_CUSTOMERS.hdbtable. Replace its content with the following.
 
@@ -291,7 +291,7 @@ column table "LOCAL_EMPLOYEES" (
 
 
 
->**Note:** It is important to note that when creating a table in SAP HANA Cloud, the Delta Merge feature is automatically enabled by default. There is no need to explicitly specify how the table should handle the auto merge process during creation. However, in this situation, we are specifying "No Auto Merge" for demonstration purposes to showcase the behavior without Delta Merge. For further information on the delta merge process, click [here](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/bd9ac728bb57101482b2ebfe243dcd7a.html).
+>**Note:** It is important to note that when creating a table in SAP HANA Cloud, the Delta Merge feature is automatically enabled by default. There is no need to explicitly specify how the table should handle the auto merge process during creation. However, in this situation, we are specifying "No Auto Merge" for demonstration purposes to showcase the behavior without Delta Merge. For further information on the delta merge process, click [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/delta-merge-operation).
 
 <br>
 
